@@ -1,47 +1,506 @@
 ﻿
-<div class="grid-x">
-    <div class="cell medium-offset-2 medium-8 large-offset-2 large-8 content">
-        <div class="grid-x profileName">
-            <div class=" small-12 medium-offset-2 medium-8 large-offset-2 large-8">
-                <div class="grid-x">
-                    <div class="cell small-12 medium-12 large-12 name">
-                        <h1> Connor Wilson</h1>
+ <div id="intro">
+    <div id="introContent">
+        <div class="grid-x">
+            <div class="cell medium-offset-2 medium-8 large-offset-2 large-8 content">
+                <div class="grid-x profileName">
+                    <div class=" small-12 medium-offset-2 medium-8 large-offset-2 large-8">
+                        <div class="grid-x">
+                            <div class="cell small-12 medium-12 large-12 name">
+                                <h1> Connor Wilson</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-x description">
+                    <p>Hi, I'm Connor Wilson! I'm actively seeking new opportunities in Software Development. Since 2018 I have a worked as in C# .NET Web Developer for a small tech startup (<a href="https://web.asignio.com">Asignio</a>) specializing in passwordless multi-factor authentication. I hold a Bachelors Degree in Computer Science and Minor in Mathematics from Oregon State University.
+                    <p>Currently I would prefer an in-person or hybrid role. I have worked remotely the past 4 years and would like to be back in the office at least a day or two a week. I want to be apart of a team where I can collaborate in person and interact with my coworkers face to face.</p>
+                    <p>In my free time I enjoy being outside whether it be running, hiking, climbing, or cycling.</p>
+                    <p>If you think I would be a good fit, contact me at one of the following to discuss employment opportunities:</p>
+                </div>
+                <div class="grid-x contact">
+                    <div class="cell small-12 medium-3 large-3 contactInfo">
+                        <div class="tooltip-container">
+                            <p data-selector="phoneNumber" class="tooltip-target">
+                                360-610-3373
+                                <span class="tooltip">Copy Phone Number</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class=" cell small-12 medium-6 large-6 contactInfo">
+                        <div class="tooltip-container">
+                            <p data-selector="email" class="tooltip-target">
+                                connor.wilson48@gmail.com
+                                <span class="tooltip">Copy Email</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cell small-12 medium-3 large-3 contactInfo">
+                        <div data-selector="linkedIn" id="linkedIn" style="display: inline-block"><i class="fa-brands fa-linkedin"></i> &nbsp;LinkedIn</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="grid-x description">
-            <p>Hi, I'm Connor Wilson! I'm actively seeking new opportunities in Software Development. Since 2018 I have a worked as in C# .NET Web Developer for a small tech startup (<a href="https://web.asignio.com">Asignio</a>) specializing in passwordless multi-factor authentication. I hold a Bachelors Degree in Computer Science and Minor in Mathematics from Oregon State University. 
-            <p>Currently I would prefer an in-person or hybrid role. I have worked remotely the past 4 years and would like to be back in the office at least a day or two a week. I want to be apart of a team where I can collaborate in person and interact with my coworkers face to face.</p>
-            <p>In my free time I enjoy being outside whether it be running, hiking, climbing, or cycling.</p>
-            <p>If you think I would be a good fit, contact me at one of the following to discuss employment opportunities:</p>
-        </div>
-        <div class="grid-x contact">
-            <div class="cell small-12 medium-3 large-3 contactInfo">
-                <div class="tooltip-container">
-                    <p data-selector="phoneNumber" class="tooltip-target">
-                        360-610-3373
-                        <span class="tooltip">Copy Phone Number</span>
-                    </p>
-                </div>
-            </div>
-            <div class=" cell small-12 medium-6 large-6 contactInfo">
-                <div class="tooltip-container">
-                    <p data-selector="email" class="tooltip-target">
-                        connor.wilson48@gmail.com
-                        <span class="tooltip">Copy Email</span>
-                    </p>
-                </div>
-            </div>
-            <div class="cell small-12 medium-3 large-3 contactInfo">
-                <div data-selector="linkedIn" id="linkedIn" style="display: inline-block"><i class="fa-brands fa-linkedin"></i> &nbsp;LinkedIn</div>
+        <div class="grid-x resumeDiv">
+            <div data-selector="resume" class="cell small-offset-2 small-8 medium-offset-4 medium-4 large-offset-4 large-4 download-resume" >
+                View My Resume
             </div>
         </div>
-    </div>    
-</div>
 
-<div class="grid-x resumeDiv">
-     <div data-selector="resume" class="cell small-12 medium-12 large-12 centered-div download-resume">
-           View My Resume
-     </div>
-</div>
+    </div>
+    
+
+    <!--<div class="grid-x resumeDiv">
+         <div data-selector="resume" class="cell small-12 medium-12 large-12 centered-div download-resume">
+               View My Resume
+         </div>
+    </div>
+    -->
+    <!--
+    <div class="grid-x" style="background-color: white;">
+        <div class="cell  medium-offset-2 medium-8 large-offset-2 large-8">
+           <div id="Education" style="margin-top: -12px;">
+                <div class="grid-x">
+                    <div class="cell medium-10">
+                        <h2 class="" style="color: #7393B3;">Education</h2>
+
+                    </div>
+                    <div class="medium-2 down-arrow">
+                        <i id="educationDown" class="fa-solid fa-angle-down"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="experienceDiv" id="educationDiv">
+                    <div class="grid-x">
+                        <div class="cell small-3 medium-1">
+                            <img class="companyImage" src="~/images/oregonState.jpg" />
+                        </div>
+                        <div class="cell small-6 medium-8">
+                            <p class="role">B.S. Computer Science, Cum Laude - Oregon State University</p>
+                        </div>
+                        <div class="cell small-6 medium-3 date" style="text-align:right;">
+                            June 2021
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell offset-1 small-11 medium-11 large-11">
+                            <ul>
+                                <li>Major Computer Science | Minor: Mathematics</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+           </div>
+        </div>
+
+
+            
+    </div> -->
+ </div>
+ <div id="about" >
+    <div class="grid-x" >
+        <div class="cell  medium-offset-2 medium-8 large-offset-2 large-8" style="margin-bottom: 20px;">
+            <div id="Education">
+                <div class="grid-x">
+                    <div class="cell medium-10">
+                        <h2 class="" style="color: #7393B3;">Education</h2>
+
+                    </div>
+                    <div class="medium-2 down-arrow">
+                        <i id="educationDown" class="fa-solid fa-angle-down"></i>
+                    </div>
+
+                </div>
+                <div class="experienceDiv" id="educationDiv">
+                    <div class="grid-x">
+                        <div class="cell small-3 medium-1">
+                            <img class="companyImage" src="~/images/oregonState.jpg" />
+                        </div>
+                        <div class="cell small-6 medium-8">
+                            <p class="role">B.S. Computer Science, Cum Laude - Oregon State University</p>
+                        </div>
+                        <div class="cell small-6 medium-3 date" style="text-align:right;">
+                            June 2021
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell offset-1 small-11 medium-11 large-11">
+                            <ul>
+                                <li>Major Computer Science | Minor: Mathematics</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="Experience">
+                <div class="grid-x">
+
+                    <div class="cell medium-10">
+                        <h2 class="" style="color: #7393B3;">Work Experience</h2>
+
+                    </div>
+                    <div class="medium-2 down-arrow">
+                        <i id="experienceDown" class="fa-solid fa-angle-down"></i>
+                    </div>
+                </div>
+
+                <div id="experienceDiv2">
+                    <!--Asignio-->
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell small-3 medium-1 large-1">
+                                <img class="companyImage" src="~/images/asignio_logo.jpg" />
+                            </div>
+                            <div class="cell small-6 medium-8 large-7">
+                                <p class="role">Full Stack Software Developer - <a href="https://web.asignio.com">Asignio</a>, Remote Worker</p>
+                            </div>
+                            <div class="cell small-3 medium-3 large-4 date" style="text-align:right;">
+                                September 2021 - Current
+                            </div>
+                        </div>
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11">
+                                <ul class="companyDescription">
+                                    <li>Passwordless multi-factor authentication startup</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11  medium-11  large-11">
+                                <ul>
+                                    <li>Worked in a fast-paced start-up environment using agile development practices.</li>
+                                    <li>Implemented HTTP requests using C# and .NET MVC framework to facilitate communication between client-side and server-side components of the web application.</li>
+                                    <li>Developed responsive web applications allowing for compatibility for a range of users, devices, and screen sizes using Razor, CSS Foundation, Ajax, JSON, and jQuery. </li>
+                                    <li>Created and maintained .NET microservices to improve user notifications.</li>
+                                    <li>Wrote SQL queries for reading, writing, and updating user data efficiently.</li>
+                                    <li>Enhanced marketing site using jQuery and CSS Foundation framework, bringing 20% more users to our main site.</li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!--WWOOF-->
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell small-3 medium-1 large-1">
+                                <img class="companyImage" src="~/images/wwoofusa_logo.jpg" />
+                            </div>
+                            <div class="cell small-6 medium-8 large-7">
+                                <p class="role">Farmer - <a href="https://wwoof.net/">WWOOF</a>, Captain Cook, Hawaii</p>
+                            </div>
+                            <div class="cell small-6 medium-3 large-4 date" style="text-align:right;">
+                                September 2022 - December 2022
+                            </div>
+                        </div>
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11">
+                                <ul class="companyDescription">
+                                    <li>Nonprofit cultural and education program focused on sustainable agriculture</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11">
+                                <ul>
+                                    <li>Worked part time on an off-grid coffee and fruit farm while working as a software developer remotely.</li>
+                                    <li>Helped harvest, maintain, and start a variety of crops using multiple tools and techniques.</li>
+                                    <li>Collaborated with other workers to set goals for the day and ensured all tasks were completed in a timely manner.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <!--Asignio-->
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell small-3 medium-1 large-1">
+                                <img class="companyImage" src="~/images/asignio_logo.jpg" />
+                            </div>
+                            <div class="cell small-6 medium-8 large-7">
+                                <p class="role">Full Stack Software Development Intern - <a href="https://web.asignio.com">Asignio</a>, Seattle, WA/Remote Worker</p>
+                            </div>
+                            <div class="cell small-6 medium-3 large-4 date" style="text-align:right;">
+                                Summer 2018, 2019, and 2020
+                            </div>
+                        </div>
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11">
+                                <ul class="companyDescription">
+                                    <li>Passwordless multi-factor authentication startup</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid-x">
+                            <div class="offset-1 small-11 medium-11 large-11">
+                                <ul>
+                                    <li>Used .NET MVC, C#, and SQL for full-stack development. Created a password keeper and file system for managing user’s passwords and data.</li>
+                                    <li>Utilized Git to manage iterations of code and GitHub to collaborate with other team members</li>
+                                    <li>Improved security with password encryption algorithms.</li>
+                                    <li>Gained experience using SQL for storing and retrieving data.</li>
+                                    <li>Used Jira software for collaboration with team members and bug/issue management.</li>
+                                </ul>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!--Oregon State University-->
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell small-3 medium-1">
+                                <img class="companyImage" src="~/images/oregonState.jpg" />
+                            </div>
+                            <div class="cell small-6 medium-8">
+                                <p class="role">Math Learning Assistant - <a href="">Oregon State University</a>, Corvallis, OR/Remote Worker </p>
+                            </div>
+                            <div class="cell small-6 medium-3 date" style="text-align:right;">
+                                January 2021 - June 2021
+                            </div>
+                        </div>
+                        <!--
+                        <div class="grid-x">
+                            <div class="cell">
+                                <ul class="companyDescription">
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div> -->
+                        <div class="grid-x">
+                            <div class="offset-1 small-11 medium-11 large-11">
+                                <ul>
+                                    <li>Assisted professor with classroom sessions of 60-100 students.</li>
+                                    <li>Facilitated discussions for breakout rooms via Zoom.</li>
+                                    <li>Responded to online discussion board posts regarding homework questions.</li>
+                                    <li>Researched efficacy of synchronous vs asynchronous remote courses.</li>
+                                    <ii>Learned about different teaching and learning styles through pedagogy class.</ii>
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!--Oregon State University-->
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell small-3 medium-1">
+                                <img class="companyImage" src="~/images/oregonState.jpg" />
+                            </div>
+                            <div class="cell small-6 medium-8">
+                                <p class="role">Undergraduate Research Assistant - <a href="">Oregon State University</a>, Corvallis, OR/Remote Worker </p>
+                            </div>
+                            <div class="cell small-6 medium-3 date" style="text-align:right;">
+                                January 2019 - June 2020
+                            </div>
+                        </div>
+                        <!--
+                        <div class="grid-x">
+                            <div class="cell">
+                                <ul class="companyDescription">
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div> -->
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11">
+                                <ul>
+                                    <li>Implemented software to facilitate the integration of additive and subtractive manufacturing processes to enable hybrid manufacturing.</li>
+                                    <li>Developed one comprehensive G-code (commands that instruct the printer) for 3D printing and milling using C++ and File I/O.</li>
+                                    <li>Designed a GUI using Windows Presentation Foundation and XAML to receive user inputs to construct G-Code.</li>
+                                    <li>Presented research at Oregon State University Celebrating Undergraduate Excellence (CUE) fair.</li>
+                                    <li>1 of 8 finalists nationally to present my research at the ASME 2019 MSEC conference.</li>
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="Awards">
+                <div class="grid-x">
+
+                    <div class="cell medium-10">
+                        <h2 class="" style="color: #7393B3;">Awards</h2>
+
+                    </div>
+                    <div class="medium-2 down-arrow">
+                        <i id="awardsDown" class="fa-solid fa-angle-down"></i>
+                    </div>
+                </div>
+                <div id="awardsDiv">
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
+                                UG Dubach Balanced Man Scholarship
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
+                                Undergraduate Research Scholarship and the Arts (URSA) Engage Award
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
+                                1st Place in Nike Innovation Pitch Competition
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
+                                Larkworthy Engineering Scholarship
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                
+
+            </div>
+
+            <div id="Certifications">
+                <div class="grid-x">
+
+                    <div class="cell medium-10">
+                        <h2 class="" style="color: #7393B3;">Certifications</h2>
+
+                    </div>
+                    <div class="medium-2 down-arrow">
+                        <i id="certificationsDown" class="fa-solid fa-angle-down"></i>
+                    </div>
+                </div>
+                <div id="certificationsDiv">
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell small-3 medium-1 large-1">
+                                <img class="companyImage" src="~/images/aiare_logo.jpg" />
+                            </div>
+                            <div class="cell small-8 medium-8 vertical-center" style="font-weight: bold">
+                                <a href="https://avtraining.org/">AIARE</a>&nbsp;1 Avalanche Certification
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell small-3 medium-1 large-1">
+                                <img class="companyImage" src="~/images/padi_logo.jpg" />
+                            </div>
+                            <div class="cell small-8 medium-8 large-8 vertical-center" style="font-weight: bold">
+                                <a href="https://www.padi.com/">PADI</a>&nbsp;Open Water Diver
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="Volunteering">
+                <div class="grid-x">
+
+                    <div class="cell medium-10">
+                        <h2 class="" style="color: #7393B3;">Volunteering</h2>
+
+                    </div>
+                    <div class="medium-2 down-arrow">
+                        <i id="volunteeringDown" class="fa-solid fa-angle-down"></i>
+                    </div>
+                </div>
+                <div id="volunteeringDiv">
+                    <div class="experienceDiv">
+                        <div class="grid-x">
+                            <div class="cell small-3 medium-1 large-1">
+                                <img class="companyImage" src="~/images/oregonState.jpg" />
+                            </div>
+                            <div class="cell small-8 medium-8 large-8">
+                                <p class="role">ResiStore Volunteer</p>
+                            </div>
+                            <div class="cell small-6 medium-3 date" style="text-align:right;">
+                                January 2019 - June 2019
+                            </div>
+
+                        </div>
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11">
+                                <ul>
+                                    <li>Sold electronic equipment to students and faculty. Gained experience and an understanding of electronic parts and how they can be utilized.</li>
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="experienceDiv">
+
+                        <div class="grid-x">
+                            <div class="cell small-3 medium-1 large-1">
+                                <img class="companyImage" src="~/images/parks-sidebar-logo.png" />
+                            </div>
+                            <div class="cell small-8 medium-8 large-8">
+                                <p class="role"> Youth Basketball Coach</p>
+                            </div>
+                            <div class="cell small-6 medium-3 date" style="text-align:right;">
+                                February 2020 - March 2020
+                            </div>
+
+                        </div>
+                        <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11">
+                                <ul>
+                                    <li>Coached a youth basketball team consisting of 3rd and 4th graders</li>
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+ </div>
