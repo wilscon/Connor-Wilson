@@ -21,16 +21,27 @@ html {
 }
 
 body {
-    height: 100%;
-    background-image: url("/images/Topographic-map.jpg");
+    
+  margin: 0;
+  padding: 0;
 }
 
-main {
+/*main {
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
     height: 100vh;
+} */
+
+#about {
+   background-color: white;
+  
+
+}
+
+.companyImage {
+    max-height: 40px;
 }
 
 .content {
@@ -62,20 +73,45 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     background-color: white;
     color: #7393B3;
     border-radius: 10px;
     border: 2px solid #7393B3;
     height: 40px;
     font-weight: bold;
-    padding:10px;
+  
 }
     .download-resume:hover {
         background-color: #7393B3;
         color: white;
         cursor: pointer;
     }
+
+.experienceDiv {
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08),0 3px 6px rgba(0,0,0,0.15);
+    border-style: solid;
+    border-color: #7393B3;
+}
+
+#intro {
+    height: 100vh;
+    position: relative;
+    background-image: url("/images/Topographic-map.jpg");
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#introContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
 
 #linkedIn:hover {
     cursor: pointer;
