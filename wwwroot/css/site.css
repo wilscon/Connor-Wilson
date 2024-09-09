@@ -1,3 +1,7 @@
+:root {
+    --primary-color: #5a7ba6;
+}
+
 html {
     font-size: 14px;
     position: relative;
@@ -27,14 +31,6 @@ body {
   padding: 0;
 }
 
-/*main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    height: 100vh;
-} */
-
 #about {
    background-color:black;
    position: relative;
@@ -54,7 +50,7 @@ body {
 }
 
 #contact {
-    background-color: #eb8634;
+    background-color: var(--primary-color) ;
     align-items: center;
     position: relative;
     color: white;
@@ -119,7 +115,7 @@ body {
     background-color: black;
     color: white;
     border-radius: 50px;
-    border: 2px solid #eb8634;
+    /*border: 2px solid var(--primary-color);*/
     
     font-weight: bold;
     
@@ -151,7 +147,7 @@ body {
     padding: 10px;
    /* box-shadow: 0 3px 6px rgba(0,0,0,0.08),0 3px 6px rgba(0,0,0,0.15);*/
     border-style: solid;
-    border-color: #eb8634;
+    border-color: var(--primary-color);
 }
 
 .form-group {
@@ -201,10 +197,9 @@ body {
     height: 100vh;
     position: relative;
     /*background-image: url("/images/Topographic-map.jpg");*/
-    background-color: #eb8634;
+    background-color: var(--primary-color);
     overflow-x: hidden;
     overflow-y: hidden;
-   
 }
 
 #introContent {
@@ -297,7 +292,7 @@ label {
 }
 
 .sectionHeader {
-    color: #eb8634;
+    color: var(--primary-color);
     margin-top: 10px;
     /*font-family: monospace; */
     
@@ -313,10 +308,10 @@ label {
     padding: 10px;
     margin: 10px;
     display: inline-block;
-    border-color: #eb8634;
+    border-color: var(--primary-color);
     border-style: solid;
     border-radius: 5px;
-    color: #eb8634;
+    color: var(--primary-color);
 }
 
 
@@ -332,7 +327,7 @@ label {
     }
 
     .skill.active {
-        background-color: #eb8634;
+        background-color: var(--primary-color);
         border-style: solid;
         border-color: black;
         color: black;
@@ -399,7 +394,7 @@ label {
     width: 50px;
     height: 50px;
     color: black;
-    background-color: #eb8634;
+    background-color: var(--primary-color);
     text-align: center;
     border-radius: 50px;
     display: flex;
