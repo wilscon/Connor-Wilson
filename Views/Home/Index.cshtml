@@ -1,6 +1,33 @@
 ﻿
- <div id="intro">
-    <div id="introContent">
+ <div id="intro" >
+     <div id="introContent">
+        <div class="grid-x">
+            <div class="cell small-12 medium-offset-1 medium-6  large-offset-1 large-6" style="margin-bottom: 20px;">
+                <h1 class="lilita-one-regular alignCenter title" style="">Connor Wilson</h1>
+                <!--<h1 class="lilita-one-regular" style="color: blue; font-size: 80px;">Full Stack </h1>-->
+                <h1 class="lilita-one-regular alignCenter title" style="color:white;"> Software Developer</h1>
+
+            </div>
+            <div class="parent cell small-offset-1 small-10 medium-4 large-4">
+                <div class="navItem" data-selector="aboutMe">
+                   About Me
+                </div>
+                <div class="navItem" data-selector="contact">
+                   Contact Me
+                </div>
+                <div class="navItem" data-selector="viewResume">
+                    View Resume Below
+                </div>
+                <div class="navItem" data-selector="downloadResume">
+                    Download Resume
+                </div>
+            </div>
+        </div>
+     </div>
+    
+    
+
+    <!-- <div id="introContent">
         <div class="grid-x">
             <div class="cell small-offset-1 small-10 medium-offset-2 medium-8 large-offset-2 large-8 content">
                 <div class="grid-x profileName">
@@ -53,50 +80,61 @@
 
     </div>
     
-
+    -->
     
  </div>
- <div id="about" style="height: 400px;">
-    <div class="grid-x" style="margin-top: 20px;">
-        <div class="cell medium-3 large-3" style="">
-            <div class="grid-x">
-                <div class="cell medium-offset-2 large-offset-2 medium-8 large-8 navigation selected nav-item" data-selector="Education">Education</div>
-            </div>
-            <!--<div class="grid-x" >
-                <div class="cell medium-offset-2 medium-8"></div>
-            </div>-->
-            <div class="grid-x">
-                <div class="cell medium-offset-2 medium-8 large-offset-2 large-8 navigation nav-item" data-selector="Experience">Work Experience</div>
-            </div>
-            <!--<div class="grid-x">
-                <div class="cell medium-offset-2 medium-8"></div>
-            </div>-->
-            <div class="grid-x">
-                <div class="cell medium-offset-2 medium-8 large-offset-2 large-8 navigation nav-item" data-selector="Awards">Awards</div>
-            </div>
-            <!--<div class="grid-x">
-                <div class="cell medium-offset-2 medium-8"></div>
-            </div>-->
-            <div class="grid-x">
-                <div class="cell medium-offset-2 medium-8 large-offset-2 large-8 navigation nav-item" data-selector="Certifications">Certifications</div>
-            </div>
-            <!--<div class="grid-x">
-                <div class="cell medium-offset-2 medium-8"></div>
-            </div>-->
-            <div class="grid-x">
-                <div class="cell medium-offset-2 medium-8 large-offset-2 large-8 navigation nav-item" data-selector="Volunteering">Volunteering</div>
-            </div>
-            <!--<div class="grid-x">
-                <div class="cell medium-offset-2 medium-8"></div>
-            </div>-->
+ <div class="grid-x screenHeight" id="why">
+    <div class="cell small-12 medium-6 large-6" style="text-align: center"><h1 class="lilita-one-regular">About Me</h1></div>
+     <div class="cell small-12 medium-6 large-6" id="whyText">
+        <p>I have worked as a C# .NET Web Developer for a small tech startup (<a href="https://web.asignio.com">Asignio</a>) specializing in passwordless multi-factor authentication since 2018. I hold a Bachelors Degree in Computer Science and Minor in Mathematics from Oregon State University.</p>
+        <p>Since being laid off from my role at Asignio in July 2024, I’ve been actively keeping my programming skills sharp by working on personal projects, tackling interview practice questions, and following YouTube tutorials. This combination has allowed me to stay current with evolving technologies while honing my problem-solving and coding abilities.</p>
+     </div>
 
+ </div>
+
+ <div class="grid-x screenHeight" id="contact">
+    <div class="cell small-12 show-for-small-only" style="text-align: center;"><h1 class="lilita-one-regular ">Contact Me</h1></div>
+    <div class="cell small-12 medium-6 large-6">
+        <div class="text-center" id="successMessage" style=" display: none; margin-top: 20px;">
+            <p>Thank you for your inquiry. I'll reach out to you soon.</p>
 
         </div>
-        <div class="cell small-10 medium-6 large-6" style="margin-bottom: 20px;">
+        <form id="myForm">
+            <div class="form-group">
+                <label for="name" class="formLabel">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label class="formLabel" for="email" >Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label class="formLabel" for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label class="formLabel" for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button id="submitContact" class="formLabel" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="cell small-12 medium-6 large-6 hidden-on-small" style="text-align: center;"><h1 class="lilita-one-regular ">Contact Me</h1></div>
+ </div>
+
+
+ <div id="about" style="">
+    <h1 class="lilita-one-regular" style="color: white; text-align: center; ">Resume</h1>
+    <div class="grid-x" style="">
+        
+
+        <div class="cell small-12 medium-offset-3 medium-6 large-offset-3 large-6" style="margin-bottom: 20px;">
             <div id="Education">
                 <div class="grid-x">
                     <div class="cell small-10 medium-10 large-10">
-                        <h2 class="sectionHeader">Education</h2>
+                        <h3 class="sectionHeader lilita-one-regular">Education</h3>
 
                     </div>
                     <!--<div class="medium-2 down-arrow">
@@ -132,7 +170,7 @@
                 <div class="grid-x">
 
                     <div class="cell medium-10">
-                        <h2 class="sectionHeader">Work Experience</h2>
+                        <h3 class="sectionHeader lilita-one-regular">Work Experience</h3>
 
                     </div>
                     <!--<div class="medium-2 down-arrow">
@@ -152,7 +190,7 @@
 
                             </div>
                             <div class="cell small-4 medium-3 large-4 date" style="text-align:right;">
-                                September 2021 - Current
+                                September 2021 - July 2024
                             </div>
                         </div>
                         <div class="grid-x">
@@ -166,11 +204,11 @@
                             <div class="cell offset-1 small-11  medium-11  large-11">
                                 <ul>
                                     <li>Worked in a fast-paced start-up environment using agile development practices.</li>
-                                    <li>Implemented HTTP requests using C# and .NET MVC framework to facilitate communication between client-side and server-side components of the web application.</li>
-                                    <li>Developed responsive web applications allowing for compatibility for a range of users, devices, and screen sizes using Razor, CSS Foundation, Ajax, JSON, and jQuery. </li>
-                                    <li>Created and maintained .NET microservices to improve user notifications.</li>
-                                    <li>Wrote SQL queries for reading, writing, and updating user data efficiently.</li>
-                                    <li>Enhanced marketing site using jQuery and CSS Foundation framework, bringing 20% more users to our main site.</li>
+                                    <li>Implemented HTTP requests using <span class="C#">C#</span> and <span class=".NET">.NET</span> MVC framework to facilitate communication between client-side and server-side components of the web application.</li>
+                                    <li>Developed responsive web applications allowing for compatibility for a range of users, devices, and screen sizes using Razor, <span class="CSS">CSS</span> Foundation, <span class="AJAX">AJAX</span>, <span class="JSON">JSON</span> and <span class="jQuery">jQuery</span>. </li>
+                                    <li>Created and maintained <span class=".NET">.NET</span> microservices to improve user notifications.</li>
+                                    <li>Wrote <span class="SQL">SQL</span> queries for reading, writing, and updating user data efficiently.</li>
+                                    <li>Enhanced marketing site using <span class="jQuery">jQuery</span> and <span class="CSS">CSS</span> Foundation framework, bringing 20% more users to our main site.</li>
                                 </ul>
 
                             </div>
@@ -237,10 +275,10 @@
                         <div class="grid-x">
                             <div class="offset-1 small-11 medium-11 large-11">
                                 <ul>
-                                    <li>Used .NET MVC, C#, and SQL for full-stack development. Created a password keeper and file system for managing user’s passwords and data.</li>
+                                    <li>Used <span class=".NET">.NET</span> MVC, <span class="C#">C#</span>, and <span class="SQL">SQL</span> for full-stack development. Created a password keeper and file system for managing user’s passwords and data.</li>
                                     <li>Utilized Git to manage iterations of code and GitHub to collaborate with other team members</li>
                                     <li>Improved security with password encryption algorithms.</li>
-                                    <li>Gained experience using SQL for storing and retrieving data.</li>
+                                    <li>Gained experience using <span class="SQL">SQL</span> for storing and retrieving data.</li>
                                     <li>Used Jira software for collaboration with team members and bug/issue management.</li>
                                 </ul>
 
@@ -261,7 +299,7 @@
                                 <img class="companyImage" src="~/images/oregonState.jpg" />
                             </div>
                             <div class="cell small-6 medium-8">
-                                <p class="role">Math Learning Assistant - <a href="">Oregon State University</a>, Corvallis, OR/Remote Worker </p>
+                                <p class="role">Math Learning Assistant - <a href="https://oregonstate.edu/">Oregon State University</a>, Corvallis, OR/Remote Worker </p>
                             </div>
                             <div class="cell small-4 medium-3 date" style="text-align:right;">
                                 January 2021 - June 2021
@@ -301,7 +339,7 @@
                                 <img class="companyImage" src="~/images/oregonState.jpg" />
                             </div>
                             <div class="cell small-6 medium-8">
-                                <p class="role">Undergraduate Research Assistant - <a href="">Oregon State University</a>, Corvallis, OR/Remote Worker </p>
+                                <p class="role">Undergraduate Research Assistant - <a href="https://oregonstate.edu/">Oregon State University</a>, Corvallis, OR/Remote Worker </p>
                             </div>
                             <div class="cell small-4 medium-3 date" style="text-align:right;">
                                 January 2019 - June 2020
@@ -319,7 +357,7 @@
                             <div class="cell offset-1 small-11 medium-11 large-11">
                                 <ul>
                                     <li>Implemented software to facilitate the integration of additive and subtractive manufacturing processes to enable hybrid manufacturing.</li>
-                                    <li>Developed one comprehensive G-code (commands that instruct the printer) for 3D printing and milling using C++ and File I/O.</li>
+                                    <li>Developed one comprehensive G-code (commands that instruct the printer) for 3D printing and milling using <span class="C++">C++</span> and File I/O.</li>
                                     <li>Designed a GUI using Windows Presentation Foundation and XAML to receive user inputs to construct G-Code.</li>
                                     <li>Presented research at Oregon State University Celebrating Undergraduate Excellence (CUE) fair.</li>
                                     <li>1 of 8 finalists nationally to present my research at the ASME 2019 MSEC conference.</li>
@@ -339,7 +377,7 @@
                 <div class="grid-x">
 
                     <div class="cell medium-10">
-                        <h2 class="sectionHeader">Awards</h2>
+                        <h3 class="sectionHeader lilita-one-regular">Awards</h3>
 
                     </div>
 
@@ -347,7 +385,7 @@
                 <div id="awardsDiv">
                     <div class="experienceDiv">
                         <div class="grid-x">
-                            <div class="cell offset-1 small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
+                            <div class="cell small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
                                 UG Dubach Balanced Man Scholarship
                             </div>
                         </div>
@@ -355,21 +393,21 @@
                     </div>
                     <div class="experienceDiv">
                         <div class="grid-x">
-                            <div class="cell offset-1 small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
+                            <div class="cell small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
                                 Undergraduate Research Scholarship and the Arts (URSA) Engage Award
                             </div>
                         </div>
                     </div>
                     <div class="experienceDiv">
                         <div class="grid-x">
-                            <div class="cell offset-1 small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
+                            <div class="cell small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
                                 1st Place in Nike Innovation Pitch Competition
                             </div>
                         </div>
                     </div>
                     <div class="experienceDiv">
                         <div class="grid-x">
-                            <div class="cell offset-1 small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
+                            <div class="cell small-11 medium-11 large-11 vertical-center" style="font-weight: bold;">
                                 Larkworthy Engineering Scholarship
                             </div>
                         </div>
@@ -386,7 +424,7 @@
                 <div class="grid-x">
 
                     <div class="cell medium-10">
-                        <h2 class="sectionHeader">Certifications</h2>
+                        <h3 class="sectionHeader lilita-one-regular">Certifications</h3>
 
                     </div>
 
@@ -419,7 +457,7 @@
                 <div class="grid-x">
 
                     <div class="cell medium-10">
-                        <h2 class="sectionHeader">Volunteering</h2>
+                        <h3 class="sectionHeader lilita-one-regular">Volunteering</h3>
                     </div>
 
                 </div>
@@ -484,6 +522,27 @@
 
             </div>
         </div>
+        <div class="cell small-1 medium-3 large-3 hidden-on-small">
+            <h3 class="lilita-one-regular" style="padding: 10px; color:  #eb8634">Skills:</h3>
+            <div class="skill " data-selector="html">HTML</div>
+            <div class="skill" data-selector="css">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">jQuery</div>
+            <div class="skill">JSON</div>
+            <div class="skill">C#</div>
+            <div class="skill">C++</div>
+            <div class="skill">Java</div>
+            <div class="skill">SQL</div>
+            <div class="skill">AJAX</div>
+            <div class="skill">.NET</div>
+
+            <p style="color: grey; padding: 10px;">*Tap a skill to highlight in Resume*</p>
+            <p class="HTML" style="color: grey; padding-left: 10px; padding-right: 10px;display: none;"> HTML: Used during my work as a full stack developer for Asignio.</p>
+            <p class="Java" style="color: grey; padding-left: 10px; padding-right: 10px; display: none;">Java: Used in AP Computer Science in High School (2016).</p>
+            <p class="JavaScript" style="color: grey; padding-left: 10px; padding-right: 10px; display: none;">JavaScript: Used during my work as a full stack developer for Asignio.</p>
+            
+            
+        </div>
 
 
 
@@ -496,4 +555,6 @@
 
 
     </div>
+
+    <div id="toTopButton" data-selector="toTop" style=""><i class="fa-solid fa-angle-up"></i></div>
  </div>
