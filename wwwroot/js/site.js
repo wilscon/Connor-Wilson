@@ -1,5 +1,6 @@
 ﻿var elements = {
     aboutDiv: $('#about'),
+    homeButton: $('[data-selector="home"]'),
     downloadResumeButton: $('[data-selector="downloadResume"]'),
     viewResumeButton: $('[data-selector="viewResume"]'),
     viewAboutMeButton: $('[data-selector="aboutMe"]'),
@@ -12,6 +13,7 @@
     skillcss: $('[data-selector="css"]'),
     submitButton: $('#submitContact'),
     toTopButton: $('[data-selector="toTop"]'),
+    downButton: $('[data-selector="downButton"]'),
     email: $('[data-selector="email"]'),
     form: $('#myForm'),
     name: $('#name'),
@@ -22,6 +24,7 @@
 
 };
 var initialize = function () {
+    elements.homeButton.click(toTop);
     elements.downloadResumeButton.click(downloadResume);
     elements.viewResumeButton.click(viewResume);
     elements.viewAboutMeButton.click(viewAboutMe);
@@ -31,6 +34,7 @@ var initialize = function () {
     elements.phoneNumber.click(copyValue);
     elements.email.click(copyValue);
     elements.toTopButton.click(toTop);
+    elements.downButton.click(viewAboutMe);
     elements.skillButtons.click(function (event) {
         var skillClass = event.target.innerHTML;
 
@@ -131,13 +135,32 @@ const toTop = function () {
     });
 
 }
-var viewAboutMe = function () {
-    document.getElementById('why').scrollIntoView({ behavior: 'smooth' });
+
+
+var viewAboutMe = function () {  
+    const section = document.getElementById('why');
+    const navbarHeight = document.querySelector('.navbar').offsetHeight -1;
+    const sectionPosition = section.offsetTop - navbarHeight;
+    window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth'
+
+    });
+    
+    
 }
 
 var viewContact = function () {
+    const section = document.getElementById('contact');
+    const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
+    const sectionPosition = section.offsetTop - navbarHeight;
 
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth'
+
+    });
+    
 }
 var viewLinkedIn = function () {
     window.open("https://www.linkedin.com/in/connor-wilson-b942b8156", '_blank');
@@ -149,8 +172,16 @@ var viewGithub = function () {
 }
 
 var viewResume = function () {
-    //alert("view resume button clicked");
-    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    const section = document.getElementById('about');
+    const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
+    const sectionPosition = section.offsetTop - navbarHeight;
+
+    window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth'
+
+    });
+   
 }
 var downloadResume = function () {
     window.open("/Connor Wilson Resume.pdf", '_blank');
