@@ -4,7 +4,8 @@
     viewResumeButton: $('[data-selector="viewResume"]'),
     viewAboutMeButton: $('[data-selector="aboutMe"]'),
     viewContactButton: $('[data-selector="contact"]'),
-    linkedInButton: $('[data-selector="linkedIn"]'), 
+    linkedInButton: $('[data-selector="linkedIn"]'),
+    githubButton: $('[data-selector="github"]'),
     phoneNumber: $('[data-selector="phoneNumber"]'),
     skillButtons: $('.skill'),
     skillhtml: $('[data-selector="html"]'),
@@ -19,13 +20,14 @@
     message: $('#message'),
     successMessage: $('#successMessage')
 
-}
+};
 var initialize = function () {
     elements.downloadResumeButton.click(downloadResume);
     elements.viewResumeButton.click(viewResume);
     elements.viewAboutMeButton.click(viewAboutMe);
     elements.viewContactButton.click(viewContact);
     elements.linkedInButton.click(viewLinkedIn);
+    elements.githubButton.click(viewGithub);
     elements.phoneNumber.click(copyValue);
     elements.email.click(copyValue);
     elements.toTopButton.click(toTop);
@@ -42,45 +44,28 @@ var initialize = function () {
         if ($(this).hasClass('active')) {
             $(this).removeClass('active');
 
-            if (skillClass == "Java" || skillClass == "HTML" || skillClass == "JavaScript") {
+            if (skillClass == "Java" || skillClass == "HTML") {
 
                 $("." + skillClass).css('display', 'none');
             }
             else {
-
-                
-                //$('.' + skillClass).css('background-color', '');
                 $("[class='" + skillClass + "']").css('background-color', '');
             }
 
         } else {
             $(this).addClass('active');
-            if (skillClass == "Java" || skillClass == "HTML" || skillClass == "JavaScript") {
+            if (skillClass == "Java" || skillClass == "HTML") {
 
                 $("." + skillClass).css('display', '');
             }
             else {
-
-               
-                // $('.' + skillClass).css('background-color', 'yellow');
                 $("[class='" + skillClass + "']").css('background-color', 'yellow');
-            }
-            
+            }   
         }
-        
-        //selected(event);
     });
-   /* elements.skillhtml.click(function (event) {
-        selected(event);
-    });
-    elements.skillcss.click(function (event) {
-        selected(event);
-    });          */
 
     document.getElementById("myForm").addEventListener("submit", function (event) {
         event.preventDefault();
-
-        //const formData = new FormData(this);
 
         var name = elements.name.val();
         var email = elements.email.val();
@@ -96,7 +81,7 @@ var initialize = function () {
         };
 
         $.ajax({
-            url: 'Home/Submit', // Replace with your actual action method URL
+            url: 'Home/Submit', 
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(formData),
@@ -157,6 +142,11 @@ var viewContact = function () {
 var viewLinkedIn = function () {
     window.open("https://www.linkedin.com/in/connor-wilson-b942b8156", '_blank');
 };
+
+var viewGithub = function () {
+    window.open("https://github.com/wilscon", '_blank');
+
+}
 
 var viewResume = function () {
     //alert("view resume button clicked");

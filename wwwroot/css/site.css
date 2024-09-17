@@ -63,14 +63,19 @@ body {
 
 
 .contact {
-   padding-bottom:10px;
-    padding-left:10px;
-    padding-right:10px;
+    padding-bottom: 10px;
+    /*padding-left:10px; */
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 675px;
 }
+
 
 .contactInfo {
     font-weight: bold;
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -232,6 +237,11 @@ label {
     cursor: pointer;
 }
 
+#github:hover {
+
+    cursor: pointer;
+}
+
 
 
 .name {
@@ -319,6 +329,8 @@ label {
     color: #eb8634;
 }
 
+
+    
 
 
 
@@ -466,6 +478,17 @@ ul.stay {
 
     label {
         font-size: 16px;
+    }
+
+    .contact {
+    
+        flex-direction: column;
+
+    }
+
+    .contactInfo {
+        text-align: center;
+    
     }
     /*.navItem {
         height: 150px;
