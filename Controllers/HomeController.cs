@@ -62,18 +62,26 @@ namespace Connor_Wilson.Controllers
 
 
             var message = MessageResource.Create(messageOptions);
-            Console.WriteLine(message.Body);
+            
 
             return Ok(new { success = true, message = "Contact information received successfully." });
 
         }
 
+		public IActionResult Github() {
+
+            var messageOptions = new CreateMessageOptions(
+              new PhoneNumber("3606103373"));
+            messageOptions.From = new PhoneNumber("+18885566261");
+            messageOptions.Body = "Someone has tapped the Github link";
+            var message = MessageResource.Create(messageOptions);
+            return Ok(new { success = true});
+
+        }
+
 		
 
-		public IActionResult Privacy()
-		{
-			return View();
-		}
+		
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()

@@ -167,6 +167,21 @@ var viewLinkedIn = function () {
 };
 
 var viewGithub = function () {
+
+    $.ajax({
+        url: '/Home/Github',
+        type: 'POST',
+        contentType: 'application/json',
+        data: '',
+        success: function (response) {
+
+
+        },    
+        error: function (xhr, status, error) {
+            alert("An error occurred: " + error);
+        }
+    });
+
     window.open("https://github.com/wilscon", '_blank');
 
 }
