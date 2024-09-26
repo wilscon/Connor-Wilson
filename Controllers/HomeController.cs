@@ -2,10 +2,12 @@ using Connor_Wilson.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using System.Diagnostics;
+using System.Net.Http;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq;
 
 namespace Connor_Wilson.Controllers
 {
@@ -13,6 +15,7 @@ namespace Connor_Wilson.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
+		private readonly HttpClient _httpClient;
 
 
         private string? accountSid = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
@@ -22,17 +25,31 @@ namespace Connor_Wilson.Controllers
 
 
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
-		{
-			_logger = logger;
-			_configuration = configuration;
-			phoneNumber = _configuration["Twilio:MyPhoneNumber"];
-			twilioPhoneNumber = _configuration["Twilio:TwilioPhoneNumber"];
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, HttpClient httpClient)
+        {
+            _logger = logger;
+            _configuration = configuration;
+            phoneNumber = _configuration["Twilio:MyPhoneNumber"];
+            twilioPhoneNumber = _configuration["Twilio:TwilioPhoneNumber"];
+            _httpClient = httpClient;
         }
 
-		public IActionResult Index()
+        public async Task<IActionResult> Index()
 		{
-			
+
+            var url = $"https://www.duolingo.com/2017-06-30/users?username=Connor660733";
+            HttpResponseMessage response = await _httpClient.GetAsync(url);
+
+            string streak = "";
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var data = JObject.Parse(json);
+                streak = (data["users"][0]["streak"]?.ToObject<int?>()).ToString(); 
+               
+            }
+
 
             TwilioClient.Init(accountSid, authToken);
 
@@ -43,11 +60,17 @@ namespace Connor_Wilson.Controllers
 
 
             var message = MessageResource.Create(messageOptions);
-            
 
+
+            IndexViewModel model = new IndexViewModel()
+            {
+                DuoLingoStreak = streak,
+
+
+            };
            
 
-            return View();
+            return View(model);
 		}
 
 		public IActionResult Submit([FromBody] ContactModel form)
