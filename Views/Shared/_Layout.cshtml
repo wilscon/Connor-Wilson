@@ -50,6 +50,18 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
+    <script>
+       
+        document.addEventListener('click', function (event) {
+            var navbar = document.getElementById('navbarNav');  
+            var navbarToggler = document.querySelector('.navbar-toggler'); 
+
+            if (!navbar.contains(event.target) && !navbarToggler.contains(event.target) && navbar.classList.contains('show')) {
+                navbarToggler.click();  
+            }
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
