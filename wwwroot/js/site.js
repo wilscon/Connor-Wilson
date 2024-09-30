@@ -8,13 +8,13 @@
     linkedInButton: $('[data-selector="linkedIn"]'),
     githubButton: $('[data-selector="github"]'),
     phoneNumber: $('[data-selector="phoneNumber"]'),
+    copyEmail: $('[data-selector="email"]'),
     skillButtons: $('.skill'),
     skillhtml: $('[data-selector="html"]'),
     skillcss: $('[data-selector="css"]'),
     submitButton: $('#submitContact'),
     toTopButton: $('[data-selector="toTop"]'),
     downButton: $('[data-selector="downButton"]'),
-    email: $('[data-selector="email"]'),
     form: $('#myForm'),
     name: $('#name'),
     email: $('#email'),
@@ -32,7 +32,7 @@ var initialize = function () {
     elements.linkedInButton.click(viewLinkedIn);
     elements.githubButton.click(viewGithub);
     elements.phoneNumber.click(copyValue);
-    elements.email.click(copyValue);
+    elements.copyEmail.click(copyValue);
     elements.toTopButton.click(toTop);
     elements.downButton.click(viewAboutMe);
     elements.skillButtons.click(function (event) {
