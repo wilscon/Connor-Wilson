@@ -297,6 +297,11 @@ label {
 
 }
 
+.researchPoster:hover {
+    cursor:pointer;
+
+}
+
 .resumeDiv {
     margin-top:20px;
 }
@@ -528,6 +533,7 @@ a.navbar-brand {
         margin-top: 10px;
     
     }
+
     /*.navItem {
         height: 150px;
         width: 50%;
