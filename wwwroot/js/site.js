@@ -1,4 +1,4 @@
-﻿var elements = {
+﻿const elements = {
     aboutDiv: $('#about'),
     homeButton: $('[data-selector="home"]'),
     downloadResumeButton: $('[data-selector="downloadResume"]'),
@@ -25,7 +25,7 @@
     successMessage: $('#successMessage')
 
 };
-var initialize = function () {
+const  initialize = function () {
     elements.homeButton.click(toTop);
     elements.downloadResumeButton.click(downloadResume);
     elements.viewResumeButton.click(viewResume);
@@ -110,7 +110,7 @@ var initialize = function () {
     });
 
 };
-var copyValue = function () {
+const copyValue = function () {
     let start = $(this).text().indexOf(' ') + 2;
     let finish = $(this).text().indexOf('\n');
     finish = $(this).text().indexOf('\n', finish + 1);
@@ -126,12 +126,10 @@ var copyValue = function () {
     }, 2000);
 }
 
-
-var selected = function (event) {
+const selected = function (event) {
 
     alert(event.target.innerHTML);
 }
-
 const toTop = function () {
     window.scrollTo({
         top: 0,
@@ -139,9 +137,7 @@ const toTop = function () {
     });
 
 }
-
-
-var viewAboutMe = function () {  
+const viewAboutMe = function () {  
     const section = document.getElementById('why');
     const navbarHeight = document.querySelector('.navbar').offsetHeight -1;
     const sectionPosition = section.offsetTop - navbarHeight;
@@ -150,11 +146,9 @@ var viewAboutMe = function () {
         behavior: 'smooth'
 
     });
-    
-    
 }
 
-var viewContact = function () {
+const viewContact = function () {
     const section = document.getElementById('contact');
     const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
     const sectionPosition = section.offsetTop - navbarHeight;
@@ -163,14 +157,12 @@ var viewContact = function () {
         top: sectionPosition,
         behavior: 'smooth'
 
-    });
-    
+    });  
 }
-var viewLinkedIn = function () {
+const viewLinkedIn = function () {
     window.open("https://www.linkedin.com/in/connor-wilson-b942b8156", '_blank');
 };
-
-var viewGithub = function () {
+const viewGithub = function () {
 
     $.ajax({
         url: '/Home/Github',
@@ -189,7 +181,6 @@ var viewGithub = function () {
     window.open("https://github.com/wilscon", '_blank');
 
 }
-
 const viewMathResearchPoster = function () {
     window.open("/Math Learning Assistant Research Poster.pdf", '_blank');
 
@@ -200,8 +191,7 @@ const viewResearchPoster = function () {
 
 
 }
-
-var viewResume = function () {
+const viewResume = function () {
     const section = document.getElementById('about');
     const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
     const sectionPosition = section.offsetTop - navbarHeight;
@@ -213,10 +203,8 @@ var viewResume = function () {
     });
    
 }
-var downloadResume = function () {
+const downloadResume = function () {
     window.open("/Connor Wilson Resume.pdf", '_blank');
 }
-
-
 
 initialize();
