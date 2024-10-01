@@ -328,6 +328,13 @@ label {
     color: var(--primary-color);
 }
 
+.skillText {
+    color: grey;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
 
     
 
@@ -335,10 +342,6 @@ label {
 
    .skill:hover {
         cursor: pointer;
-        /*background-color: black;
-        color: #eb8634;
-        border-style: solid;
-        border-color: #eb8634;*/
         
     }
 
