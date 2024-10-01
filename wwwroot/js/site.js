@@ -9,6 +9,8 @@
     githubButton: $('[data-selector="github"]'),
     phoneNumber: $('[data-selector="phoneNumber"]'),
     copyEmail: $('[data-selector="email"]'),
+    researchPoster: $('[data-selector="researchPoster"]'),
+    mathResearchPoster: $('[data-selector="mathResearchPoster"]'),
     skillButtons: $('.skill'),
     skillhtml: $('[data-selector="html"]'),
     skillcss: $('[data-selector="css"]'),
@@ -35,6 +37,8 @@ var initialize = function () {
     elements.copyEmail.click(copyValue);
     elements.toTopButton.click(toTop);
     elements.downButton.click(viewAboutMe);
+    elements.researchPoster.click(viewResearchPoster);
+    elements.mathResearchPoster.click(viewMathResearchPoster);
     elements.skillButtons.click(function (event) {
         var skillClass = event.target.innerHTML;
 
@@ -183,6 +187,17 @@ var viewGithub = function () {
     });
 
     window.open("https://github.com/wilscon", '_blank');
+
+}
+
+const viewMathResearchPoster = function () {
+    window.open("/Math Learning Assistant Research Poster.pdf", '_blank');
+
+}
+
+const viewResearchPoster = function () {
+    window.open("/Undergraduate Research Poster.pdf", '_blank');
+
 
 }
 
