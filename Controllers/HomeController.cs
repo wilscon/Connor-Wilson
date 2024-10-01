@@ -8,6 +8,8 @@ using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace Connor_Wilson.Controllers
 {
@@ -16,50 +18,46 @@ namespace Connor_Wilson.Controllers
 		private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
 		private readonly HttpClient _httpClient;
+        private readonly IWebHostEnvironment _env;
+         
+        private string? emailAPIKEY = Environment.GetEnvironmentVariable("Website_Notification");
 
-
-        private string? accountSid = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
-        private string? authToken = Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN");
-		private string? phoneNumber;
-		private string? twilioPhoneNumber;
-
-
-
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, HttpClient httpClient)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, HttpClient httpClient, IWebHostEnvironment env)
         {
             _logger = logger;
             _configuration = configuration;
-            phoneNumber = _configuration["Twilio:MyPhoneNumber"];
-            twilioPhoneNumber = _configuration["Twilio:TwilioPhoneNumber"];
             _httpClient = httpClient;
+            _env = env;
         }
 
         public async Task<IActionResult> Index()
 		{
 
             var url = $"https://www.duolingo.com/2017-06-30/users?username=Connor660733";
-            HttpResponseMessage response = await _httpClient.GetAsync(url);
+            HttpResponseMessage duoResponse = await _httpClient.GetAsync(url);
 
             string streak = "";
 
-            if (response.IsSuccessStatusCode)
+            if (duoResponse.IsSuccessStatusCode)
             {
-                var json = await response.Content.ReadAsStringAsync();
+                var json = await duoResponse.Content.ReadAsStringAsync();
                 var data = JObject.Parse(json);
                 streak = (data["users"][0]["streak"]?.ToObject<int?>()).ToString(); 
                
             }
 
-
-            TwilioClient.Init(accountSid, authToken);
-
-			var messageOptions = new CreateMessageOptions(
-			new PhoneNumber(phoneNumber));
-            messageOptions.From = new PhoneNumber(twilioPhoneNumber);
-			messageOptions.Body = "Someone has visited your site";
-
-
-            var message = MessageResource.Create(messageOptions);
+            if (!_env.IsDevelopment())
+            {
+                var client = new SendGridClient(emailAPIKEY);
+                var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+                var subject = "Website visited";
+                var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+                var plainTextContent = "Somone has visited your site";
+                var htmlContent = "<p>Someone has visited your site</p>";
+                var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+                var msgResponse = await client.SendEmailAsync(msg);
+            }
+                 
 
 
             IndexViewModel model = new IndexViewModel()
@@ -73,38 +71,39 @@ namespace Connor_Wilson.Controllers
             return View(model);
 		}
 
-		public IActionResult Submit([FromBody] ContactModel form)
+		public async Task<IActionResult> Submit([FromBody] ContactModel form)
 		{
-           
-			TwilioClient.Init(accountSid, authToken);
+            var client = new SendGridClient(emailAPIKEY);
+            var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var subject = "Inquiry from personal website";
+            var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var plainTextContent = "Somone has visited your site";
+            var htmlContent = "<p>" + "Name: " + form.Name + "</p>" + 
+                "<p>Email: " + form.Email + "</p>" +
+                "<p>Phone Number: " + form.PhoneNumber + "</p>" +
+                "<p>Message: " + form.Message + "</p>";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var msgResponse = await client.SendEmailAsync(msg); 
 
-            var messageOptions = new CreateMessageOptions(
-              new PhoneNumber("3606103373"));
-            messageOptions.From = new PhoneNumber("+18885566261");
-            messageOptions.Body = "Name: " + form.Name + " \nEmail: " + form.Email + "\nPhone Number: " + form.PhoneNumber + "\nMessage: " + form.Message;
 
-
-            var message = MessageResource.Create(messageOptions);
-            
-
-            return Ok(new { success = true, message = "Contact information received successfully." });
+            return Ok(new { success = true, message = "Contact information received successfully." });    
 
         }
 
-		public IActionResult Github() {
+		public async Task <IActionResult> Github() {
 
-            var messageOptions = new CreateMessageOptions(
-              new PhoneNumber("3606103373"));
-            messageOptions.From = new PhoneNumber("+18885566261");
-            messageOptions.Body = "Someone has tapped the Github link";
-            var message = MessageResource.Create(messageOptions);
+            var client = new SendGridClient(emailAPIKEY);
+            var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var subject = "Github visited";
+            var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var plainTextContent = "Somone has visited your Github from your personal site";
+            var htmlContent = "<p>Someone has visited your Github from your personal site</p>";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var msgResponse = await client.SendEmailAsync(msg);
+
             return Ok(new { success = true});
 
         }
-
-		
-
-		
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
