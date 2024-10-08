@@ -9,6 +9,7 @@
     githubButton: $('[data-selector="github"]'),
     phoneNumber: $('[data-selector="phoneNumber"]'),
     copyEmail: $('[data-selector="email"]'),
+    duoLingo: $('#DuoLingo'),
     researchPoster: $('[data-selector="researchPoster"]'),
     mathResearchPoster: $('[data-selector="mathResearchPoster"]'),
     navBarToggler: $('#navbarToggler'),
@@ -41,6 +42,7 @@ const  initialize = function () {
     elements.researchPoster.click(viewResearchPoster);
     elements.mathResearchPoster.click(viewMathResearchPoster);
     elements.navBarToggler.click(toggleNavBar);
+    elements.duoLingo.click(viewDuoLingo);
     elements.skillButtons.click(function (event) {
         var skillClass = event.target.innerHTML;
 
@@ -173,10 +175,35 @@ const viewContact = function () {
 
     });  
 }
+
+const viewDuoLingo = function () {
+
+    window.open("https://www.duolingo.com/profile/Connor660733", '_blank');
+
+    $.ajax({
+        url: '/Home/DuoLingo',
+        type: 'POST',
+        contentType: 'application/json',
+        data: '',
+        success: function (response) {
+
+
+        },
+        error: function (xhr, status, error) {
+            alert("An error occurred: " + error);
+        }
+    });
+
+   
+    
+
+}
 const viewLinkedIn = function () {
     window.open("https://www.linkedin.com/in/connor-wilson-b942b8156", '_blank');
 };
 const viewGithub = function () {
+
+    window.open("https://github.com/wilscon", '_blank');
 
     $.ajax({
         url: '/Home/Github',

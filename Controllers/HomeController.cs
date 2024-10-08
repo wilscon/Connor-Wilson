@@ -90,6 +90,21 @@ namespace Connor_Wilson.Controllers
 
         }
 
+        public async Task<IActionResult> DuoLingo() {
+            
+            var client = new SendGridClient(emailAPIKEY);
+            var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var subject = "DuoLingo visited";
+            var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var plainTextContent = "Somone has visited DuoLingo from your personal site";
+            var htmlContent = "<p>Someone has visited DuoLingo from your personal site</p>";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var msgResponse = await client.SendEmailAsync(msg);
+
+            return Ok(new { success = true });
+
+        }
+
 		public async Task <IActionResult> Github() {
 
             var client = new SendGridClient(emailAPIKEY);
