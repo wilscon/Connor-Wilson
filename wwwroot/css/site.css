@@ -382,6 +382,11 @@ label {
         color: black;
     }
 
+#DuoLingo {
+    color: #1779ba; 
+    text-decoration: underline; 
+    cursor: pointer; 
+}
 
 #successMessage {
     font-family: monospace;
