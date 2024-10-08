@@ -11,6 +11,7 @@
     copyEmail: $('[data-selector="email"]'),
     researchPoster: $('[data-selector="researchPoster"]'),
     mathResearchPoster: $('[data-selector="mathResearchPoster"]'),
+    navBarToggler: $('#navbarToggler'),
     skillButtons: $('.skill'),
     skillhtml: $('[data-selector="html"]'),
     skillcss: $('[data-selector="css"]'),
@@ -39,6 +40,7 @@ const  initialize = function () {
     elements.downButton.click(viewAboutMe);
     elements.researchPoster.click(viewResearchPoster);
     elements.mathResearchPoster.click(viewMathResearchPoster);
+    elements.navBarToggler.click(toggleNavBar);
     elements.skillButtons.click(function (event) {
         var skillClass = event.target.innerHTML;
 
@@ -71,6 +73,12 @@ const  initialize = function () {
             }   
         }
     });
+
+   
+
+   /* document.getElementById('navbarToggler').addEventListener('click', function () {
+        this.classList.toggle('open');
+    }); */
 
     document.getElementById("myForm").addEventListener("submit", function (event) {
         event.preventDefault();
@@ -110,6 +118,12 @@ const  initialize = function () {
     });
 
 };
+
+const toggleNavBar = function () {
+
+    $(this).toggleClass('open');
+
+}
 const copyValue = function () {
     let start = $(this).text().indexOf(' ') + 2;
     let finish = $(this).text().indexOf('\n');
