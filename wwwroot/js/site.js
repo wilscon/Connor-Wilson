@@ -14,7 +14,6 @@
     mathResearchPoster: $('[data-selector="mathResearchPoster"]'),
     navBarToggler: $('#navbarToggler'),
     skillButtons: $('.skill'),
-    skillhtml: $('[data-selector="html"]'),
     skillcss: $('[data-selector="css"]'),
     submitButton: $('#submitContact'),
     toTopButton: $('[data-selector="toTop"]'),
@@ -56,7 +55,7 @@ const  initialize = function () {
         if ($(this).hasClass('active')) {
             $(this).removeClass('active');
 
-            if (skillClass == "Java" || skillClass == "HTML") {
+            if (skillClass == "Java") {
 
                 $("." + skillClass).css('display', 'none');
             }
@@ -66,7 +65,7 @@ const  initialize = function () {
 
         } else {
             $(this).addClass('active');
-            if (skillClass == "Java" || skillClass == "HTML") {
+            if (skillClass == "Java") {
 
                 $("." + skillClass).css('display', '');
             }
