@@ -198,7 +198,7 @@ const viewDuoLingo = function () {
 
 }
 const viewLinkedIn = function () {
-    window.open("https://www.linkedin.com/in/connor-wilson-b942b8156", '_blank');
+    window.open("https://www.linkedin.com/in/connorwilson48", '_blank');
 };
 const viewGithub = function () {
 
