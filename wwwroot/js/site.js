@@ -211,15 +211,11 @@ const viewGithub = function () {
         data: '',
         success: function (response) {
 
-
         },    
         error: function (xhr, status, error) {
             alert("An error occurred: " + error);
         }
     });
-
-    window.open("https://github.com/wilscon", '_blank');
-
 }
 const viewMathResearchPoster = function () {
     window.open("/Math Learning Assistant Research Poster.pdf", '_blank');
