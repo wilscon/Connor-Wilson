@@ -39,8 +39,22 @@ body {
 
 }
 
+.awardText {
+
+    display: flex;
+    align-items: center;
+
+}
+
+.awardText p {
+
+    margin-bottom: unset;
+
+}
+
 .companyImage {
     max-height: 40px;
+    max-width: 40px;
 }
 
 .content {
