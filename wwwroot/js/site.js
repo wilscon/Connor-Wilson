@@ -24,7 +24,8 @@
     email: $('#email'),
     phone: $('#phone'),
     message: $('#message'),
-    successMessage: $('#successMessage')
+    successMessage: $('#successMessage'),
+    viewURSA: $('#URSA')
 
 };
 const initialize = function () {
@@ -44,6 +45,7 @@ const initialize = function () {
     elements.mathResearchPoster.click(viewMathResearchPoster);
     elements.navBarToggler.click(toggleNavBar);
     elements.duoLingo.click(viewDuoLingo);
+    elements.viewURSA.click(viewURSA);
     elements.skillButtons.click(function (event) {
         var skillClass = event.target.innerHTML;
 
@@ -257,6 +259,23 @@ const viewResume = function () {
 
     });
    
+}
+
+const viewURSA = function () {
+
+    window.open("https://undergradresearch.oregonstate.edu/ursa-engage", '_blank'); 
+    $.ajax({
+        url: '/Home/URSA',
+        type: 'POST',
+        contentType: 'application/json',
+        data: '',
+        success: function (response) {
+
+        },
+        error: function (xhr, status, error) {
+            alert("An error occurred: " + error);
+        }
+    });
 }
 const downloadResume = function () {
     window.open("/Connor Wilson Resume.pdf", '_blank');
