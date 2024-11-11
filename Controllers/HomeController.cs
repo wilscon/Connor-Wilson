@@ -161,6 +161,19 @@ namespace Connor_Wilson.Controllers
 
             return Ok(new { success = true });
         }
+        public async Task<IActionResult> ResearchPoster()
+        {
+            var client = new SendGridClient(emailAPIKEY);
+            var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var subject = "Research Poster visited";
+            var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var plainTextContent = "Somone has viewed your Research Poster from your personal site";
+            var htmlContent = "Somone has viewed your Research Poster from your personal site";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var msgResponse = await client.SendEmailAsync(msg);
+
+            return Ok(new { success = true });
+        }
 
         public async Task<IActionResult> URSA(){
             var client = new SendGridClient(emailAPIKEY);

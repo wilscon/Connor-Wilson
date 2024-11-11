@@ -259,6 +259,18 @@ const viewMathResearchPoster = function () {
 
 const viewResearchPoster = function () {
     window.open("/Undergraduate Research Poster.pdf", '_blank');
+    $.ajax({
+        url: '/Home/ResearchPoster',
+        type: 'POST',
+        contentType: 'application/json',
+        data: '',
+        success: function (response) {
+
+        },
+        error: function (xhr, status, error) {
+            alert("An error occurred: " + error);
+        }
+    });
 
 
 }
