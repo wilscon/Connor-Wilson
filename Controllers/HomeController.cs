@@ -136,7 +136,21 @@ namespace Connor_Wilson.Controllers
 
         }
 
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public async Task<IActionResult> URSA(){
+            var client = new SendGridClient(emailAPIKEY);
+            var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var subject = "URSA award visited";
+            var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var plainTextContent = "Somone has visited the URSA Award from your personal site";
+            var htmlContent = "<p>Somone has visited the URSA Award from your personal site</p>";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var msgResponse = await client.SendEmailAsync(msg);
+
+            return Ok(new { success = true });
+
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

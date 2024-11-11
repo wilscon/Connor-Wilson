@@ -503,6 +503,11 @@ ul.stay {
     width: 100%;
 }
 
+#URSA {
+    color: #1779ba;
+    cursor: pointer;
+}
+
 #why {
     align-items: center;
     position: relative;
