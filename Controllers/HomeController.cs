@@ -136,6 +136,19 @@ namespace Connor_Wilson.Controllers
 
         }
 
+        public async Task<IActionResult> Nike() {
+            var client = new SendGridClient(emailAPIKEY);
+            var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var subject = "Nike Innovation Pitch Competition visited";
+            var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
+            var plainTextContent = "Somone has visited the Nike Innovation Pitch Competition from your personal site";
+            var htmlContent = "Somone has visited the Nike Innovation Pitch Competition from your personal site";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var msgResponse = await client.SendEmailAsync(msg);
+
+            return Ok(new { success = true });
+        }
+
         public async Task<IActionResult> URSA(){
             var client = new SendGridClient(emailAPIKEY);
             var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
