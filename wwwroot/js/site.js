@@ -25,6 +25,7 @@
     phone: $('#phone'),
     message: $('#message'),
     successMessage: $('#successMessage'),
+    viewNike: $('#Nike'),
     viewURSA: $('#URSA')
 
 };
@@ -45,6 +46,7 @@ const initialize = function () {
     elements.mathResearchPoster.click(viewMathResearchPoster);
     elements.navBarToggler.click(toggleNavBar);
     elements.duoLingo.click(viewDuoLingo);
+    elements.viewNike.click(viewNike);
     elements.viewURSA.click(viewURSA);
     elements.skillButtons.click(function (event) {
         var skillClass = event.target.innerHTML;
@@ -248,6 +250,23 @@ const viewResearchPoster = function () {
 
 
 }
+
+const viewNike = function () {
+    window.open('https://www.linkedin.com/posts/connorwilson48_technology-innovation-nike-activity-6520143949003395072-HTKI/', '_blank');
+    $.ajax({
+        url: '/Home/Nike',
+        type: 'POST',
+        contentType: 'application/json',
+        data: '',
+        success: function (response) {
+
+        },
+        error: function (xhr, status, error) {
+            alert("An error occurred: " + error);
+        }
+    });
+}
+
 const viewResume = function () {
     const section = document.getElementById('about');
     const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;

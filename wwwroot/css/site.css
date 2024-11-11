@@ -251,6 +251,11 @@ label {
     font-style: normal;
 }
 
+.link {
+    color: #1779ba;
+    cursor: pointer;
+}
+
 #linkedIn:hover {
     cursor: pointer;
 }
@@ -401,12 +406,6 @@ label {
         color: black;
     }
 
-#DuoLingo {
-    color: #1779ba; 
-    text-decoration: underline; 
-    cursor: pointer; 
-}
-
 #successMessage {
     font-family: monospace;
     font-size: 24px;
@@ -501,11 +500,6 @@ ul.stay {
     position: fixed;
     top: 0;
     width: 100%;
-}
-
-#URSA {
-    color: #1779ba;
-    cursor: pointer;
 }
 
 #why {
