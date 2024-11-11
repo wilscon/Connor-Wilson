@@ -52,6 +52,11 @@ body {
 
 }
 
+#balancedMan {
+    color: #1779ba;
+    cursor: pointer;
+}
+
 .companyImage {
     max-height: 40px;
     max-width: 40px;

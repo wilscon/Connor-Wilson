@@ -1,5 +1,6 @@
 ﻿const elements = {
     aboutDiv: $('#about'),
+    balancedMan: $('#balancedMan'),
     homeButton: $('[data-selector="home"]'),
     downloadResumeButton: $('[data-selector="downloadResume"]'),
     viewResumeButton: $('[data-selector="viewResume"]'),
@@ -26,7 +27,8 @@
     successMessage: $('#successMessage')
 
 };
-const  initialize = function () {
+const initialize = function () {
+    elements.balancedMan.click(viewBalancedMan);
     elements.homeButton.click(toTop);
     elements.downloadResumeButton.click(downloadResume);
     elements.viewResumeButton.click(viewResume);
@@ -160,6 +162,23 @@ const viewAboutMe = function () {
         top: sectionPosition,
         behavior: 'smooth'
 
+    });
+}
+
+const viewBalancedMan = function () {
+    window.open("https://sigep.org/the-sigep-experience/awards/ulysses-grant-dubach-scroll/", '_blank');
+    $.ajax({
+        url: '/Home/BalancedMan',
+        type: 'POST',
+        contentType: 'application/json',
+        data: '',
+        success: function (response) {
+
+
+        },
+        error: function (xhr, status, error) {
+            alert("An error occurred: " + error);
+        }
     });
 }
 
