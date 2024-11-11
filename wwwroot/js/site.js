@@ -241,8 +241,20 @@ const viewGithub = function () {
     });
 }
 const viewMathResearchPoster = function () {
-    window.open("/Math Learning Assistant Research Poster.pdf", '_blank');
 
+    window.open("/Math Learning Assistant Research Poster.pdf", '_blank');
+    $.ajax({
+        url: '/Home/MathPoster',
+        type: 'POST',
+        contentType: 'application/json',
+        data: '',
+        success: function (response) {
+
+        },
+        error: function (xhr, status, error) {
+            alert("An error occurred: " + error);
+        }
+    });
 }
 
 const viewResearchPoster = function () {
