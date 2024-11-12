@@ -54,7 +54,7 @@ const initialize = function () {
         if (skillClass == "C#") {
             skillClass = "C\\#";
         }
-        else if (skillClass == ".NET" ) {
+        else if (skillClass == ".NET Core" ) {
             skillClass = '.\\NET'
         }
 
