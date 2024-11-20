@@ -27,8 +27,17 @@
     viewNike: $('#Nike'),
     viewResumeButton: $('[data-selector="viewResume"]'),
     viewURSA: $('#URSA')
-
 };
+
+const notifications = [{ name: "DuoLingo", url: "https://www.duolingo.com/profile/Connor660733" },
+    { name: "BalancedMan", url: "https://sigep.org/the-sigep-experience/awards/ulysses-grant-dubach-scroll/" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/connorwilson48" },
+    { name: "Github", url: "https://github.com/wilscon" },
+    { name: "Nike", url: "https://www.linkedin.com/posts/connorwilson48_technology-innovation-nike-activity-6520143949003395072-HTKI/" },
+    { name: "URSA", url: "https://undergradresearch.oregonstate.edu/ursa-engage" },
+    { name: "MathPoster", url: "/Math Learning Assistant Research Poster.pdf" },
+    { name: "ResearchPoster", url: "/Undergraduate Research Poster.pdf"},
+];
 const initialize = function () {
     elements.balancedMan.click(viewBalancedMan);
     elements.homeButton.click(toTop);
@@ -163,12 +172,11 @@ const viewAboutMe = function () {
 }
 
 const viewBalancedMan = function () {
-    window.open("https://sigep.org/the-sigep-experience/awards/ulysses-grant-dubach-scroll/", '_blank');
+    window.open(notifications[1].url, '_blank');
     $.ajax({
-        url: '/Home/BalancedMan',
+        url: '/Home/' + notifications[1].name,
         type: 'POST',
         contentType: 'application/json',
-        data: '',
         success: function (response) {
 
 
@@ -193,13 +201,12 @@ const viewContact = function () {
 
 const viewDuoLingo = function () {
 
-    window.open("https://www.duolingo.com/profile/Connor660733", '_blank');
+    window.open(notifications[0].url, '_blank');
 
     $.ajax({
-        url: '/Home/DuoLingo',
+        url: '/Home/' + notifications[0].name,
         type: 'POST',
         contentType: 'application/json',
-        data: '',
         success: function (response) {
 
 
@@ -214,14 +221,13 @@ const viewDuoLingo = function () {
 
 }
 const viewLinkedIn = function () {
-    window.open("https://www.linkedin.com/in/connorwilson48", '_blank');
+    window.open(notifications[2].url, '_blank');
 };
 const viewGithub = function () {
 
-    window.open("https://github.com/wilscon", '_blank');
-
+    window.open(notifications[3].url, 'blank')
     $.ajax({
-        url: '/Home/Github',
+        url: '/Home/' + notifications[3].name,
         type: 'POST',
         contentType: 'application/json',
         data: '',
@@ -235,9 +241,9 @@ const viewGithub = function () {
 }
 const viewMathResearchPoster = function () {
 
-    window.open("/Math Learning Assistant Research Poster.pdf", '_blank');
+    window.open(notifications[6].url, '_blank');
     $.ajax({
-        url: '/Home/MathPoster',
+        url: '/Home/' + notifications[6].name,
         type: 'POST',
         contentType: 'application/json',
         data: '',
@@ -251,9 +257,10 @@ const viewMathResearchPoster = function () {
 }
 
 const viewResearchPoster = function () {
-    window.open("/Undergraduate Research Poster.pdf", '_blank');
+   
+    window.open(notifications[7].url, '_blank');
     $.ajax({
-        url: '/Home/ResearchPoster',
+        url: '/Home/' + notifications[7].name,
         type: 'POST',
         contentType: 'application/json',
         data: '',
@@ -269,9 +276,9 @@ const viewResearchPoster = function () {
 }
 
 const viewNike = function () {
-    window.open('https://www.linkedin.com/posts/connorwilson48_technology-innovation-nike-activity-6520143949003395072-HTKI/', '_blank');
+    window.open(notifications[4].url, 'blank');
     $.ajax({
-        url: '/Home/Nike',
+        url: '/Home/' + notification[4].name,
         type: 'POST',
         contentType: 'application/json',
         data: '',
@@ -298,10 +305,11 @@ const viewResume = function () {
 }
 
 const viewURSA = function () {
+    window.open(notifications[5].url, 'blank');
 
-    window.open("https://undergradresearch.oregonstate.edu/ursa-engage", '_blank'); 
+
     $.ajax({
-        url: '/Home/URSA',
+        url: '/Home/' + notifications[5].name,
         type: 'POST',
         contentType: 'application/json',
         data: '',
