@@ -278,7 +278,7 @@ const viewResearchPoster = function () {
 const viewNike = function () {
     window.open(notifications[4].url, 'blank');
     $.ajax({
-        url: '/Home/' + notification[4].name,
+        url: '/Home/' + notifications[4].name,
         type: 'POST',
         contentType: 'application/json',
         data: '',
