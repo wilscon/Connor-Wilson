@@ -1,31 +1,31 @@
 ﻿const elements = {
     aboutDiv: $('#about'),
     balancedMan: $('#balancedMan'),
-    homeButton: $('[data-selector="home"]'),
-    downloadResumeButton: $('[data-selector="downloadResume"]'),
-    viewResumeButton: $('[data-selector="viewResume"]'),
-    viewAboutMeButton: $('[data-selector="aboutMe"]'),
-    viewContactButton: $('[data-selector="contact"]'),
-    linkedInButton: $('[data-selector="linkedIn"]'),
-    githubButton: $('[data-selector="github"]'),
-    phoneNumber: $('[data-selector="phoneNumber"]'),
     copyEmail: $('[data-selector="email"]'),
+    downButton: $('[data-selector="downButton"]'),
+    downloadResumeButton: $('[data-selector="downloadResume"]'),
     duoLingo: $('#DuoLingo'),
-    researchPoster: $('[data-selector="researchPoster"]'),
+    email: $('#email'),
+    form: $('#myForm'),
+    githubButton: $('[data-selector="github"]'),
+    homeButton: $('[data-selector="home"]'),
+    linkedInButton: $('[data-selector="linkedIn"]'),
     mathResearchPoster: $('[data-selector="mathResearchPoster"]'),
+    message: $('#message'),
+    name: $('#name'),
     navBarToggler: $('#navbarToggler'),
+    phone: $('#phone'),
+    phoneNumber: $('[data-selector="phoneNumber"]'),
+    researchPoster: $('[data-selector="researchPoster"]'),
     skillButtons: $('.skill'),
     skillcss: $('[data-selector="css"]'),
     submitButton: $('#submitContact'),
-    toTopButton: $('[data-selector="toTop"]'),
-    downButton: $('[data-selector="downButton"]'),
-    form: $('#myForm'),
-    name: $('#name'),
-    email: $('#email'),
-    phone: $('#phone'),
-    message: $('#message'),
     successMessage: $('#successMessage'),
+    toTopButton: $('[data-selector="toTop"]'),
+    viewAboutMeButton: $('[data-selector="aboutMe"]'),
+    viewContactButton: $('[data-selector="contact"]'),
     viewNike: $('#Nike'),
+    viewResumeButton: $('[data-selector="viewResume"]'),
     viewURSA: $('#URSA')
 
 };
@@ -80,13 +80,6 @@ const initialize = function () {
             }   
         }
     });
-
-   
-
-   /* document.getElementById('navbarToggler').addEventListener('click', function () {
-        this.classList.toggle('open');
-    }); */
-
     document.getElementById("myForm").addEventListener("submit", function (event) {
         event.preventDefault();
 
