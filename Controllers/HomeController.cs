@@ -136,7 +136,7 @@ namespace Connor_Wilson.Controllers
 
         }
 
-        public async Task<IActionResult> MathPoster() {
+        public async Task<IActionResult> MathResearchPoster() {
             var client = new SendGridClient(emailAPIKEY);
             var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
             var subject = "Math Poster visited";

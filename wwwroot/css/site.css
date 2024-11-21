@@ -52,10 +52,7 @@ body {
 
 }
 
-#balancedMan {
-    color: #1779ba;
-    cursor: pointer;
-}
+
 
 .companyImage {
     max-height: 40px;
@@ -250,8 +247,7 @@ label {
     font-weight: 400;
     font-style: normal;
 }
-
-.link {
+.linkStyle {
     color: #1779ba;
     cursor: pointer;
 }
