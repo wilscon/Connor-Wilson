@@ -27,7 +27,7 @@
                         <div data-selector="linkedIn" id="linkedIn" style="display: inline-block"><i class="fa-brands fa-linkedin"></i> &nbsp;LinkedIn</div>
                     </div>
                     <div class="contactInfo small-margin-top">
-                        <div data-selector="github" id="github" style="display: inline-block"><i class="fa-brands fa-github"></i> &nbsp;Github</div>
+                        <div class="link" data-selector="github" id="github" style="display: inline-block"><i class="fa-brands fa-github "></i> &nbsp;Github</div>
                     </div>                  
                 </div>
 
@@ -47,7 +47,7 @@
      <div class="cell small-12 medium-6 large-6" id="whyText">
         <p>I have worked as a C# .NET Core Web Developer for a small tech startup (<a href="https://web.asignio.com" target="_blank">Asignio</a>) specializing in passwordless multi-factor authentication since 2018. I hold a Bachelors Degree in Computer Science and Minor in Mathematics from Oregon State University.</p>
         <p>Since leaving my role at Asignio in July 2024, I’ve been actively keeping my programming skills sharp by working on personal projects, tackling interview practice questions, and following YouTube tutorials. This combination has allowed me to stay current with evolving technologies while honing my problem-solving and coding abilities. Right now I am specifically learning React.</p>
-        <p>In my free time I like exercising outside outside whether it be running, biking, or hiking. I also enjoy trying to new coffee shops and learning spanish. I currently have a <span class="link" id="DuoLingo">@Model.DuoLingoStreak</span> day streak on Duolingo.</p>
+        <p>In my free time I like exercising outside whether it be running, biking, or hiking. I also enjoy trying to new coffee shops and learning spanish. I currently have a <span class="link linkStyle" data-selector="duolingo" id="DuoLingo">@Model.DuoLingoStreak</span> day streak on Duolingo.</p>
     </div>
 
  </div>
@@ -290,8 +290,8 @@
                         </div>
                         <div class="grid-x">
                             <div class="cell offset-1 small-11 medium-11 large-11" style="display:flex; align-items:center;">
-                                <img class="researchPoster" data-selector="mathResearchPoster" src="~/images/Math Learning Assistant Image.png" style="width: 100px;" />
-                                <p class="researchPoster" data-selector="mathResearchPoster" style="font-weight: bold; margin-left: 10px;">Math Learning Assistant Research Poster.pdf </p>
+                                <img class="researchPoster link" data-selector="mathResearchPoster" src="~/images/Math Learning Assistant Image.png" style="width: 100px;" />
+                                <p class="researchPoster link" data-selector="mathResearchPoster" style="font-weight: bold; margin-left: 10px;">Math Learning Assistant Research Poster.pdf </p>
                             </div>
 
                         </div>
@@ -326,17 +326,11 @@
                         </div>
                         <div class="grid-x">
                             <div class="cell offset-1 small-11 medium-11 large-11" style="display: flex; align-items:center;">
-                                <img class="researchPoster" data-selector="researchPoster"src="~/images/Undergraduate Research Image.png" style="width: 100px;"/>
-                                <p class="researchPoster" data-selector="researchPoster" style="font-weight: bold; margin-left: 10px;">Undergraduate Research Poster.pdf </p>
+                                <img class="researchPoster link" data-selector="researchPoster"src="~/images/Undergraduate Research Image.png" style="width: 100px;"/>
+                                <p class="researchPoster link" data-selector="researchPoster" style="font-weight: bold; margin-left: 10px;">Undergraduate Research Poster.pdf </p>
                             </div>
                            
                         </div>
-                        <div class="grid-x">
-                            <div class="cell offset-1 small-10 medium-10 large-10" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-                                <img style="max-height: 300px; margin-top: 10px" src="~/images/researchGroup.jpg" />
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -368,7 +362,7 @@
                                 <img class="companyImage" src="~/images/sigep.png" />
                             </div>
                             <div class="cell small-10 medium-11 large-11 awardText" style="font-weight: bold;">
-                                <p>UG Dubach Balanced Man <span class="link" id="balancedMan">Scholarship</span></p>
+                                <p>UG Dubach Balanced Man <span class="link linkStyle" id="balancedMan" data-selector="balancedMan">Scholarship</span></p>
                             </div>
                         </div>
 
@@ -379,7 +373,7 @@
                                 <img class="companyImage" src="~/images/oregonState.jpg" />
                             </div>
                             <div class="cell small-10 medium-11 large-11 awardText" style="font-weight: bold;">
-                                <p>Undergraduate Research Scholarship and the Arts <span class="link" id="URSA">(URSA)</span> Engage Award</p>
+                                <p>Undergraduate Research Scholarship and the Arts <span class="link linkStyle" data-selector="URSA" id="URSA">(URSA)</span> Engage Award</p>
                             </div>
                         </div>
                     </div>
@@ -389,7 +383,7 @@
                                 <img class="companyImage" src="~/images/Nike.png" />
                             </div>
                             <div class="cell small-10 medium-11 large-11 awardText" style="font-weight: bold;">
-                                <p>1st Place in Nike <span class="link" id="Nike">Innovation Pitch Competition</span></p>
+                                <p>1st Place in Nike <span class="link linkStyle" data-selector="nike" id="Nike">Innovation Pitch Competition</span></p>
                             </div>
                         </div>
                     </div>

@@ -1,22 +1,18 @@
 ﻿const elements = {
+    links: $('.link'),
     aboutDiv: $('#about'),
-    balancedMan: $('#balancedMan'),
     copyEmail: $('[data-selector="email"]'),
     downButton: $('[data-selector="downButton"]'),
     downloadResumeButton: $('[data-selector="downloadResume"]'),
-    duoLingo: $('#DuoLingo'),
     email: $('#email'),
     form: $('#myForm'),
-    githubButton: $('[data-selector="github"]'),
     homeButton: $('[data-selector="home"]'),
     linkedInButton: $('[data-selector="linkedIn"]'),
-    mathResearchPoster: $('[data-selector="mathResearchPoster"]'),
     message: $('#message'),
     name: $('#name'),
     navBarToggler: $('#navbarToggler'),
     phone: $('#phone'),
     phoneNumber: $('[data-selector="phoneNumber"]'),
-    researchPoster: $('[data-selector="researchPoster"]'),
     skillButtons: $('.skill'),
     skillcss: $('[data-selector="css"]'),
     submitButton: $('#submitContact'),
@@ -24,39 +20,51 @@
     toTopButton: $('[data-selector="toTop"]'),
     viewAboutMeButton: $('[data-selector="aboutMe"]'),
     viewContactButton: $('[data-selector="contact"]'),
-    viewNike: $('#Nike'),
     viewResumeButton: $('[data-selector="viewResume"]'),
-    viewURSA: $('#URSA')
 };
 
-const notifications = [{ name: "DuoLingo", url: "https://www.duolingo.com/profile/Connor660733" },
-    { name: "BalancedMan", url: "https://sigep.org/the-sigep-experience/awards/ulysses-grant-dubach-scroll/" },
+const notifications = [{ name: "duolingo", url: "https://www.duolingo.com/profile/Connor660733" },
+    { name: "balancedMan", url: "https://sigep.org/the-sigep-experience/awards/ulysses-grant-dubach-scroll/" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/connorwilson48" },
-    { name: "Github", url: "https://github.com/wilscon" },
-    { name: "Nike", url: "https://www.linkedin.com/posts/connorwilson48_technology-innovation-nike-activity-6520143949003395072-HTKI/" },
+    { name: "github", url: "https://github.com/wilscon" },
+    { name: "nike", url: "https://www.linkedin.com/posts/connorwilson48_technology-innovation-nike-activity-6520143949003395072-HTKI/" },
     { name: "URSA", url: "https://undergradresearch.oregonstate.edu/ursa-engage" },
-    { name: "MathPoster", url: "/Math Learning Assistant Research Poster.pdf" },
-    { name: "ResearchPoster", url: "/Undergraduate Research Poster.pdf"},
+    { name: "mathResearchPoster", url: "/Math Learning Assistant Research Poster.pdf" },
+    { name: "researchPoster", url: "/Undergraduate Research Poster.pdf"},
 ];
+
+const openLink = function (event) {
+
+    notification = notifications.find(notification => notification.name === event.target.dataset.selector);
+    window.open(notification.url, '_blank');
+    $.ajax({
+        url: '/Home/' + notification.name,
+        type: 'POST',
+        contentType: 'application/json',
+        success: function (response) {
+
+
+        },
+        error: function (xhr, status, error) {
+            console.log("An error occurred: " + error);
+        }
+    });
+}
 const initialize = function () {
-    elements.balancedMan.click(viewBalancedMan);
+    
+    elements.links.click(openLink);
     elements.homeButton.click(toTop);
     elements.downloadResumeButton.click(downloadResume);
     elements.viewResumeButton.click(viewResume);
     elements.viewAboutMeButton.click(viewAboutMe);
     elements.viewContactButton.click(viewContact);
     elements.linkedInButton.click(viewLinkedIn);
-    elements.githubButton.click(viewGithub);
     elements.phoneNumber.click(copyValue);
     elements.copyEmail.click(copyValue);
     elements.toTopButton.click(toTop);
     elements.downButton.click(viewAboutMe);
-    elements.researchPoster.click(viewResearchPoster);
-    elements.mathResearchPoster.click(viewMathResearchPoster);
     elements.navBarToggler.click(toggleNavBar);
-    elements.duoLingo.click(viewDuoLingo);
-    elements.viewNike.click(viewNike);
-    elements.viewURSA.click(viewURSA);
+  
     elements.skillButtons.click(function (event) {
         var skillClass = event.target.innerHTML;
 
@@ -171,21 +179,6 @@ const viewAboutMe = function () {
     });
 }
 
-const viewBalancedMan = function () {
-    window.open(notifications[1].url, '_blank');
-    $.ajax({
-        url: '/Home/' + notifications[1].name,
-        type: 'POST',
-        contentType: 'application/json',
-        success: function (response) {
-
-
-        },
-        error: function (xhr, status, error) {
-            alert("An error occurred: " + error);
-        }
-    });
-}
 
 const viewContact = function () {
     const section = document.getElementById('contact');
@@ -198,98 +191,11 @@ const viewContact = function () {
 
     });  
 }
-
-const viewDuoLingo = function () {
-
-    window.open(notifications[0].url, '_blank');
-
-    $.ajax({
-        url: '/Home/' + notifications[0].name,
-        type: 'POST',
-        contentType: 'application/json',
-        success: function (response) {
-
-
-        },
-        error: function (xhr, status, error) {
-            alert("An error occurred: " + error);
-        }
-    });
-
-   
-    
-
-}
 const viewLinkedIn = function () {
     window.open(notifications[2].url, '_blank');
 };
-const viewGithub = function () {
-
-    window.open(notifications[3].url, 'blank')
-    $.ajax({
-        url: '/Home/' + notifications[3].name,
-        type: 'POST',
-        contentType: 'application/json',
-        data: '',
-        success: function (response) {
-
-        },    
-        error: function (xhr, status, error) {
-            alert("An error occurred: " + error);
-        }
-    });
-}
-const viewMathResearchPoster = function () {
-
-    window.open(notifications[6].url, '_blank');
-    $.ajax({
-        url: '/Home/' + notifications[6].name,
-        type: 'POST',
-        contentType: 'application/json',
-        data: '',
-        success: function (response) {
-
-        },
-        error: function (xhr, status, error) {
-            alert("An error occurred: " + error);
-        }
-    });
-}
-
-const viewResearchPoster = function () {
-   
-    window.open(notifications[7].url, '_blank');
-    $.ajax({
-        url: '/Home/' + notifications[7].name,
-        type: 'POST',
-        contentType: 'application/json',
-        data: '',
-        success: function (response) {
-
-        },
-        error: function (xhr, status, error) {
-            alert("An error occurred: " + error);
-        }
-    });
 
 
-}
-
-const viewNike = function () {
-    window.open(notifications[4].url, 'blank');
-    $.ajax({
-        url: '/Home/' + notifications[4].name,
-        type: 'POST',
-        contentType: 'application/json',
-        data: '',
-        success: function (response) {
-
-        },
-        error: function (xhr, status, error) {
-            alert("An error occurred: " + error);
-        }
-    });
-}
 
 const viewResume = function () {
     const section = document.getElementById('about');
@@ -304,23 +210,10 @@ const viewResume = function () {
    
 }
 
-const viewURSA = function () {
-    window.open(notifications[5].url, 'blank');
 
 
-    $.ajax({
-        url: '/Home/' + notifications[5].name,
-        type: 'POST',
-        contentType: 'application/json',
-        data: '',
-        success: function (response) {
 
-        },
-        error: function (xhr, status, error) {
-            alert("An error occurred: " + error);
-        }
-    });
-}
+
 const downloadResume = function () {
     window.open("/Connor Wilson Resume.pdf", '_blank');
 }
