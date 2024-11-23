@@ -7,7 +7,6 @@
     email: $('#email'),
     form: $('#myForm'),
     homeButton: $('[data-selector="home"]'),
-    linkedInButton: $('[data-selector="linkedIn"]'),
     message: $('#message'),
     name: $('#name'),
     navBarToggler: $('#navbarToggler'),
@@ -37,28 +36,31 @@ const openLink = function (event) {
 
     notification = notifications.find(notification => notification.name === event.target.dataset.selector);
     window.open(notification.url, '_blank');
-    $.ajax({
-        url: '/Home/' + notification.name,
-        type: 'POST',
-        contentType: 'application/json',
-        success: function (response) {
+
+    if (notification.name != 'LinkedIn') {
+        $.ajax({
+            url: '/Home/' + notification.name,
+            type: 'POST',
+            contentType: 'application/json',
+            success: function (response) {
 
 
-        },
-        error: function (xhr, status, error) {
-            console.log("An error occurred: " + error);
-        }
-    });
+            },
+            error: function (xhr, status, error) {
+                console.log("An error occurred: " + error);
+            }
+        });
+
+    }
 }
 const initialize = function () {
     
     elements.links.click(openLink);
     elements.homeButton.click(toTop);
     elements.downloadResumeButton.click(downloadResume);
-    elements.viewResumeButton.click(viewResume);
-    elements.viewAboutMeButton.click(viewAboutMe);
-    elements.viewContactButton.click(viewContact);
-    elements.linkedInButton.click(viewLinkedIn);
+    elements.viewResumeButton.click(viewSection);
+    elements.viewAboutMeButton.click(viewSection);
+    elements.viewContactButton.click(viewSection);
     elements.phoneNumber.click(copyValue);
     elements.copyEmail.click(copyValue);
     elements.toTopButton.click(toTop);
@@ -168,52 +170,19 @@ const toTop = function () {
     });
 
 }
-const viewAboutMe = function () {  
-    const section = document.getElementById('why');
-    const navbarHeight = document.querySelector('.navbar').offsetHeight -1;
-    const sectionPosition = section.offsetTop - navbarHeight;
+
+const viewSection = function (event) {
+
+    const sectionId = document.getElementById(event.target.dataset.selector);
+    const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
+    const sectionPosition = sectionId.offsetTop - navbarHeight;
     window.scrollTo({
         top: sectionPosition,
         behavior: 'smooth'
 
     });
+
 }
-
-
-const viewContact = function () {
-    const section = document.getElementById('contact');
-    const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
-    const sectionPosition = section.offsetTop - navbarHeight;
-
-    window.scrollTo({
-        top: sectionPosition,
-        behavior: 'smooth'
-
-    });  
-}
-const viewLinkedIn = function () {
-    window.open(notifications[2].url, '_blank');
-};
-
-
-
-const viewResume = function () {
-    const section = document.getElementById('about');
-    const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
-    const sectionPosition = section.offsetTop - navbarHeight;
-
-    window.scrollTo({
-        top: sectionPosition,
-        behavior: 'smooth'
-
-    });
-   
-}
-
-
-
-
-
 const downloadResume = function () {
     window.open("/Connor Wilson Resume.pdf", '_blank');
 }
