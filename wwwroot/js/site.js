@@ -26,8 +26,6 @@ const notifications = [
     { name: "mathResearchPoster", url: "/Math Learning Assistant Research Poster.pdf" },
     { name: "researchPoster", url: "/Undergraduate Research Poster.pdf"},
 ];
-
-
 const initialize = function () {
     
     elements.links.click(openLink);
@@ -36,39 +34,7 @@ const initialize = function () {
     elements.phoneNumber.click(copyValue);
     elements.copyEmail.click(copyValue);
     elements.navBarToggler.click(toggleNavBar);
-  
-    elements.skillButtons.click(function (event) {
-        var skillClass = event.target.innerHTML;
-
-        if (skillClass == "C#") {
-            skillClass = "C\\#";
-        }
-        else if (skillClass == ".NET Core" ) {
-            skillClass = '.\\NET'
-        }
-
-        if ($(this).hasClass('active')) {
-            $(this).removeClass('active');
-
-            if (skillClass == "Java") {
-
-                $("." + skillClass).css('display', 'none');
-            }
-            else {
-                $("[class='" + skillClass + "']").css('background-color', '');
-            }
-
-        } else {
-            $(this).addClass('active');
-            if (skillClass == "Java") {
-
-                $("." + skillClass).css('display', '');
-            }
-            else {
-                $("[class='" + skillClass + "']").css('background-color', 'yellow');
-            }   
-        }
-    });
+    elements.skillButtons.click(toggleSkillButton);
     document.getElementById("myForm").addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -104,14 +70,44 @@ const initialize = function () {
                 alert("An error occurred: " + error);
             }
         });
-    });
+    }); 
 
+};  
+
+const toggleSkillButton = function (event) {
+    var skillClass = event.target.innerHTML;
+
+    if (skillClass == "C#") {
+        skillClass = "C\\#";
+    }
+    else if (skillClass == ".NET Core") {
+        skillClass = '.\\NET'
+    }
+
+    if ($(this).hasClass('active')) {
+        $(this).removeClass('active');
+
+        if (skillClass == "Java") {
+
+            $("." + skillClass).css('display', 'none');
+        }
+        else {
+            $("[class='" + skillClass + "']").css('background-color', '');
+        }
+
+    } else {
+        $(this).addClass('active');
+        if (skillClass == "Java") {
+
+            $("." + skillClass).css('display', '');
+        }
+        else {
+            $("[class='" + skillClass + "']").css('background-color', 'yellow');
+        }
+    }
 };
-
 const toggleNavBar = function () {
-
     $(this).toggleClass('open');
-
 }
 const copyValue = function () {
     let start = $(this).text().indexOf(' ') + 2;
@@ -124,11 +120,9 @@ const copyValue = function () {
     let originalText = spanElement.text();
     spanElement.text("Copied");
     setTimeout(function () {
-
         spanElement.text(originalText);
     }, 2000);
 }
-
 const openLink = function (event) {
 
     notification = notifications.find(notification => notification.name === event.target.dataset.selector);
@@ -173,7 +167,6 @@ const viewAboutMe = function () {
         behavior: 'smooth'
     });
 }
-
 const downloadResume = function () {
     window.open("/Connor Wilson Resume.pdf", '_blank');
 }
