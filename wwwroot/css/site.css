@@ -32,7 +32,7 @@ body {
 }
 
 
-#about {
+#resume {
    background-color:black;
    position: relative;
   
@@ -337,7 +337,7 @@ label {
     padding-right:10px;
 }
 
-#about {
+#resume {
     padding: 20px;
 
 }
@@ -498,7 +498,7 @@ ul.stay {
     width: 100%;
 }
 
-#why {
+#about {
     align-items: center;
     position: relative;
     background-color: black;
