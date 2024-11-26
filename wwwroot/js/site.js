@@ -28,51 +28,101 @@ const notifications = [
 ];
 const initialize = function () {
     
-    elements.links.click(openLink);
+    elements.copyEmail.click(copyValue);
     elements.downloadResumeButton.click(downloadResume);
+    elements.links.click(openLink);
+    elements.navBarToggler.click(toggleNavBar);
     elements.navLinks.click(viewSection)
     elements.phoneNumber.click(copyValue);
-    elements.copyEmail.click(copyValue);
-    elements.navBarToggler.click(toggleNavBar);
     elements.skillButtons.click(toggleSkillButton);
-    document.getElementById("myForm").addEventListener("submit", function (event) {
-        event.preventDefault();
 
-        var name = elements.name.val();
-        var email = elements.email.val();
-        var phone = elements.phone.val();
-        var message = elements.message.val();
+    document.getElementById("myForm").addEventListener("submit", submitForm);
+};
 
-        let formData = {
+const copyValue = function () {
 
-            name: name,
-            email: email,
-            phoneNumber: phone,
-            message, message,
-        };
+    let start = $(this).text().indexOf(' ') + 2;
+    let finish = $(this).text().indexOf('\n');
+    finish = $(this).text().indexOf('\n', finish + 1);
+    let text = $(this).text().substring(start, finish);
+    navigator.clipboard.writeText(text);
 
+    let spanElement = $(this).find('span');
+    let originalText = spanElement.text();
+    spanElement.text("Copied");
+    setTimeout(function () {
+        spanElement.text(originalText);
+    }, 2000);
+}
+
+const downloadResume = function () {
+    window.open("/Connor Wilson Resume.pdf", '_blank');
+}
+
+const openLink = function (event) {
+
+    notification = notifications.find(notification => notification.name === event.target.dataset.selector);
+    window.open(notification.url, '_blank');
+
+    if (notification.name != 'LinkedIn') {
         $.ajax({
-            url: 'Home/Submit', 
+            url: '/Home/' + notification.name,
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(formData),
             success: function (response) {
-                if (response.success) {
-                    elements.successMessage.css("display", "");
-                    elements.form[0].reset();
-                    elements.form.css("display", "none");
-                    
-                } else {
-                    alert("Failed to submit contact information.");
-                }
+
+
             },
             error: function (xhr, status, error) {
-                alert("An error occurred: " + error);
+                console.log("An error occurred: " + error);
             }
         });
-    }); 
+    }
+}
 
-};  
+const submitForm = function (event) {
+
+    event.preventDefault();
+    var name = elements.name.val();
+    var email = elements.email.val();
+    var phone = elements.phone.val();
+    var message = elements.message.val();
+
+    let formData = {
+        name: name,
+        email: email,
+        phoneNumber: phone,
+        message, message,
+    };
+
+    $.ajax({
+        url: 'Home/Submit',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        success: function (response) {
+            if (response.success) {
+                elements.successMessage.css("display", "");
+                elements.form[0].reset();
+                elements.form.css("display", "none");
+                setTimeout(function () {
+                    elements.successMessage.css("display", "none");
+                    elements.form.css("display", "");
+                }, 4000);
+
+            } else {
+                alert("Failed to submit contact information.");
+            }
+        },
+        error: function (xhr, status, error) {
+            alert("An error occurred: " + error);
+        }
+    });
+};
+
+const toggleNavBar = function () {
+    $(this).toggleClass('open');
+}
 
 const toggleSkillButton = function (event) {
     var skillClass = event.target.innerHTML;
@@ -106,52 +156,6 @@ const toggleSkillButton = function (event) {
         }
     }
 };
-
-const toggleNavBar = function () {
-    $(this).toggleClass('open');
-}
-
-const copyValue = function () {
-    let start = $(this).text().indexOf(' ') + 2;
-    let finish = $(this).text().indexOf('\n');
-    finish = $(this).text().indexOf('\n', finish + 1);
-    let text = $(this).text().substring(start, finish);
-    navigator.clipboard.writeText(text);
-
-    let spanElement = $(this).find('span');
-    let originalText = spanElement.text();
-    spanElement.text("Copied");
-    setTimeout(function () {
-        spanElement.text(originalText);
-    }, 2000);
-}
-
-const openLink = function (event) {
-
-    notification = notifications.find(notification => notification.name === event.target.dataset.selector);
-    window.open(notification.url, '_blank');
-
-    if (notification.name != 'LinkedIn') {
-        $.ajax({
-            url: '/Home/' + notification.name,
-            type: 'POST',
-            contentType: 'application/json',
-            success: function (response) {
-
-
-            },
-            error: function (xhr, status, error) {
-                console.log("An error occurred: " + error);
-            }
-        });
-    }
-}
-
-const selected = function (event) {
-
-    alert(event.target.innerHTML);
-}
-
 const viewSection = function (event) {
     const sectionId = document.getElementById(event.target.dataset.selector);
     const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
@@ -161,10 +165,6 @@ const viewSection = function (event) {
         behavior: 'smooth'
 
     });
-}
-
-const downloadResume = function () {
-    window.open("/Connor Wilson Resume.pdf", '_blank');
 }
 
 initialize();
