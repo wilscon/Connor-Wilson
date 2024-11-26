@@ -1,28 +1,23 @@
 ﻿const elements = {
-    links: $('.link'),
-    aboutDiv: $('#about'),
     copyEmail: $('[data-selector="email"]'),
-    downButton: $('[data-selector="downButton"]'),
     downloadResumeButton: $('[data-selector="downloadResume"]'),
     email: $('#email'),
     form: $('#myForm'),
-    homeButton: $('[data-selector="home"]'),
+    links: $('.link'),
     message: $('#message'),
     name: $('#name'),
     navBarToggler: $('#navbarToggler'),
+    navLinks: $('.nav-item'),
     phone: $('#phone'),
     phoneNumber: $('[data-selector="phoneNumber"]'),
     skillButtons: $('.skill'),
     skillcss: $('[data-selector="css"]'),
     submitButton: $('#submitContact'),
     successMessage: $('#successMessage'),
-    toTopButton: $('[data-selector="toTop"]'),
-    viewAboutMeButton: $('[data-selector="aboutMe"]'),
-    viewContactButton: $('[data-selector="contact"]'),
-    viewResumeButton: $('[data-selector="viewResume"]'),
 };
 
-const notifications = [{ name: "duolingo", url: "https://www.duolingo.com/profile/Connor660733" },
+const notifications = [
+    { name: "duolingo", url: "https://www.duolingo.com/profile/Connor660733"},
     { name: "balancedMan", url: "https://sigep.org/the-sigep-experience/awards/ulysses-grant-dubach-scroll/" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/connorwilson48" },
     { name: "github", url: "https://github.com/wilscon" },
@@ -32,39 +27,14 @@ const notifications = [{ name: "duolingo", url: "https://www.duolingo.com/profil
     { name: "researchPoster", url: "/Undergraduate Research Poster.pdf"},
 ];
 
-const openLink = function (event) {
 
-    notification = notifications.find(notification => notification.name === event.target.dataset.selector);
-    window.open(notification.url, '_blank');
-
-    if (notification.name != 'LinkedIn') {
-        $.ajax({
-            url: '/Home/' + notification.name,
-            type: 'POST',
-            contentType: 'application/json',
-            success: function (response) {
-
-
-            },
-            error: function (xhr, status, error) {
-                console.log("An error occurred: " + error);
-            }
-        });
-
-    }
-}
 const initialize = function () {
     
     elements.links.click(openLink);
-    elements.homeButton.click(toTop);
     elements.downloadResumeButton.click(downloadResume);
-    elements.viewResumeButton.click(viewSection);
-    elements.viewAboutMeButton.click(viewSection);
-    elements.viewContactButton.click(viewSection);
+    elements.navLinks.click(viewSection)
     elements.phoneNumber.click(copyValue);
     elements.copyEmail.click(copyValue);
-    elements.toTopButton.click(toTop);
-    elements.downButton.click(viewAboutMe);
     elements.navBarToggler.click(toggleNavBar);
   
     elements.skillButtons.click(function (event) {
@@ -159,18 +129,30 @@ const copyValue = function () {
     }, 2000);
 }
 
+const openLink = function (event) {
+
+    notification = notifications.find(notification => notification.name === event.target.dataset.selector);
+    window.open(notification.url, '_blank');
+
+    if (notification.name != 'LinkedIn') {
+        $.ajax({
+            url: '/Home/' + notification.name,
+            type: 'POST',
+            contentType: 'application/json',
+            success: function (response) {
+
+
+            },
+            error: function (xhr, status, error) {
+                console.log("An error occurred: " + error);
+            }
+        });
+    }
+}
 const selected = function (event) {
 
     alert(event.target.innerHTML);
 }
-const toTop = function () {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' 
-    });
-
-}
-
 const viewSection = function (event) {
 
     const sectionId = document.getElementById(event.target.dataset.selector);
@@ -181,8 +163,17 @@ const viewSection = function (event) {
         behavior: 'smooth'
 
     });
-
 }
+const viewAboutMe = function () {
+    const section = document.getElementById('why');
+    const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
+    const sectionPosition = section.offsetTop - navbarHeight;
+    window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth'
+    });
+}
+
 const downloadResume = function () {
     window.open("/Connor Wilson Resume.pdf", '_blank');
 }
