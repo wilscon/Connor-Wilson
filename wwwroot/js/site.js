@@ -106,9 +106,11 @@ const toggleSkillButton = function (event) {
         }
     }
 };
+
 const toggleNavBar = function () {
     $(this).toggleClass('open');
 }
+
 const copyValue = function () {
     let start = $(this).text().indexOf(' ') + 2;
     let finish = $(this).text().indexOf('\n');
@@ -123,6 +125,7 @@ const copyValue = function () {
         spanElement.text(originalText);
     }, 2000);
 }
+
 const openLink = function (event) {
 
     notification = notifications.find(notification => notification.name === event.target.dataset.selector);
@@ -143,12 +146,13 @@ const openLink = function (event) {
         });
     }
 }
+
 const selected = function (event) {
 
     alert(event.target.innerHTML);
 }
-const viewSection = function (event) {
 
+const viewSection = function (event) {
     const sectionId = document.getElementById(event.target.dataset.selector);
     const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
     const sectionPosition = sectionId.offsetTop - navbarHeight;
@@ -158,15 +162,7 @@ const viewSection = function (event) {
 
     });
 }
-const viewAboutMe = function () {
-    const section = document.getElementById('why');
-    const navbarHeight = document.querySelector('.navbar').offsetHeight - 1;
-    const sectionPosition = section.offsetTop - navbarHeight;
-    window.scrollTo({
-        top: sectionPosition,
-        behavior: 'smooth'
-    });
-}
+
 const downloadResume = function () {
     window.open("/Connor Wilson Resume.pdf", '_blank');
 }
