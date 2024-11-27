@@ -26,18 +26,7 @@ const notifications = [
     { name: "mathResearchPoster", url: "/Math Learning Assistant Research Poster.pdf" },
     { name: "researchPoster", url: "/Undergraduate Research Poster.pdf"},
 ];
-const initialize = function () {
-    
-    elements.copyEmail.click(copyValue);
-    elements.downloadResumeButton.click(downloadResume);
-    elements.links.click(openLink);
-    elements.navBarToggler.click(toggleNavBar);
-    elements.navLinks.click(viewSection)
-    elements.phoneNumber.click(copyValue);
-    elements.skillButtons.click(toggleSkillButton);
 
-    document.getElementById("myForm").addEventListener("submit", submitForm);
-};
 
 const copyValue = function () {
 
@@ -167,4 +156,15 @@ const viewSection = function (event) {
     });
 }
 
-initialize();
+const initialize = (function () {
+
+    elements.copyEmail.click(copyValue);
+    elements.downloadResumeButton.click(downloadResume);
+    elements.links.click(openLink);
+    elements.navBarToggler.click(toggleNavBar);
+    elements.navLinks.click(viewSection)
+    elements.phoneNumber.click(copyValue);
+    elements.skillButtons.click(toggleSkillButton);
+
+    document.getElementById("myForm").addEventListener("submit", submitForm);
+})();
