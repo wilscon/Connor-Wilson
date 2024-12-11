@@ -48,12 +48,14 @@ namespace Connor_Wilson.Controllers
 
             if (!_env.IsDevelopment())
             {
+                DateTime now = DateTime.Now;
+                Console.WriteLine($"Current Date and Time: {now}");
                 var client = new SendGridClient(emailAPIKEY);
                 var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
                 var subject = "Website visited";
                 var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
-                var plainTextContent = "Somone has visited your site";
-                var htmlContent = "<p>Someone has visited your site</p>";
+                var plainTextContent = "Somone has visited your site at: " + now; ;
+                var htmlContent = "<p>Someone has visited your site at: " + now + "</p>";
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
                 var msgResponse = await client.SendEmailAsync(msg);
             }
