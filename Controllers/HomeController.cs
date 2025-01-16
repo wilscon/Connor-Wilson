@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using System;
 
 namespace Connor_Wilson.Controllers
 {
@@ -32,44 +33,44 @@ namespace Connor_Wilson.Controllers
 
         public async Task<IActionResult> Index()
 		{
-
             var url = $"https://www.duolingo.com/2017-06-30/users?username=Connor660733";
-            HttpResponseMessage duoResponse = await _httpClient.GetAsync(url);
+            string streak = null;
 
-            string streak = "";
-
-            if (duoResponse.IsSuccessStatusCode)
-            {
-                var json = await duoResponse.Content.ReadAsStringAsync();
-                var data = JObject.Parse(json);
-                streak = (data["users"][0]["streak"]?.ToObject<int?>()).ToString(); 
-               
+            try
+            {                           
+                HttpResponseMessage duoResponse = await _httpClient.GetAsync(url);
+                if (duoResponse.IsSuccessStatusCode)
+                {
+                    var json = await duoResponse.Content.ReadAsStringAsync();
+                    var data = JObject.Parse(json);
+                    streak = (data["users"][0]["streak"]?.ToObject<int?>()).ToString();
+                }
+            }
+            catch {
+                
             }
 
             if (!_env.IsDevelopment())
             {
-                DateTime now = DateTime.Now;
-                Console.WriteLine($"Current Date and Time: {now}");
+                DateTime now = DateTime.UtcNow;
+                TimeZoneInfo pstZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");
+                DateTime pstTime = TimeZoneInfo.ConvertTimeFromUtc(now, pstZone);
+               
                 var client = new SendGridClient(emailAPIKEY);
                 var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
                 var subject = "Website visited";
                 var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
-                var plainTextContent = "Somone has visited your site at: " + now; ;
-                var htmlContent = "<p>Someone has visited your site at: " + now + "</p>";
+                var plainTextContent = "Somone has visited your site at: " + pstTime; ;
+                var htmlContent = "<p>Someone has visited your site at: " + pstTime + "</p>";
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
                 var msgResponse = await client.SendEmailAsync(msg);
             }
-                 
-
 
             IndexViewModel model = new IndexViewModel()
             {
                 DuoLingoStreak = streak,
-
-
             };
            
-
             return View(model);
 		}
 
