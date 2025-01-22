@@ -31,7 +31,7 @@ namespace Connor_Wilson.Controllers
             _env = env;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? company = null)
 		{
             var url = $"https://www.duolingo.com/2017-06-30/users?username=Connor660733";
             string streak = null;
@@ -60,7 +60,7 @@ namespace Connor_Wilson.Controllers
                 var from = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
                 var subject = "Website visited";
                 var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
-                var plainTextContent = "Somone has visited your site at: " + pstTime; ;
+                var plainTextContent = string.IsNullOrEmpty(company) ? "Somone has visited your site at: " + pstTime : "Someone from " + company + " has visited your site at: " + pstTime;
                 var htmlContent = "<p>Someone has visited your site at: " + pstTime + "</p>";
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
                 var msgResponse = await client.SendEmailAsync(msg);
