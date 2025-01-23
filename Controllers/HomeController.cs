@@ -61,7 +61,7 @@ namespace Connor_Wilson.Controllers
                 var subject = "Website visited";
                 var to = new EmailAddress("connor.wilson48@gmail.com", "Connor Wilson");
                 var plainTextContent = string.IsNullOrEmpty(company) ? "Somone has visited your site at: " + pstTime : "Someone from " + company + " has visited your site at: " + pstTime;
-                var htmlContent = "<p>Someone has visited your site at: " + pstTime + "</p>";
+                var htmlContent = string.IsNullOrEmpty(company) ? "<p>Someone has visited your site at: " + pstTime + "</p>" : "<p>Someone from " + company + " has visited your site at: " + pstTime + "</p>";
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
                 var msgResponse = await client.SendEmailAsync(msg);
             }
