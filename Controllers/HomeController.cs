@@ -1,12 +1,6 @@
 using Connor_Wilson.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 using System.Diagnostics;
-using System.Net.Http;
-using Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
-using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -92,7 +86,6 @@ namespace Connor_Wilson.Controllers
             return Ok(new { success = true, message = "Contact information received successfully." });    
 
         }
-
         public async Task<IActionResult> BalancedMan()
         {
 
