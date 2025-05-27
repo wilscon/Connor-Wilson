@@ -44,8 +44,7 @@
  <div class="grid-x screenHeight" id="about">
     <div class="cell small-12 medium-6 large-6" style="text-align: center"><h1 class="lilita-one-regular">About Me</h1></div>
      <div class="cell small-12 medium-6 large-6" id="whyText">
-        <p>I have worked as a C# .NET Full Stack Web Developer for a small tech startup (<a href="https://web.asignio.com" target="_blank">Asignio</a>) specializing in passwordless multi-factor authentication since 2018. I hold a Bachelors Degree in Computer Science and a Minor in Mathematics from Oregon State University.</p>
-        <p>Since leaving my role at Asignio in July of 2024, I’ve been actively keeping my programming skills sharp by working on personal projects, tackling interview practice questions, and following YouTube tutorials. This combination has allowed me to stay current with evolving technologies while honing my problem-solving and coding abilities. Right now I am specifically learning React.</p>
+        <p>I have over 3 years of experience as a Full Stack Web Developer. I currently work for <a href="/neuropoint" target="_blank">Neuropoint</a> and prior to that I worked for <a href="https://web.asignio.com" target="_blank">Asignio</a>, a small tech startup specializing in passwordless multi-factor authentication. I hold a Bachelors Degree in Computer Science and a Minor in Mathematics from Oregon State University. I will also be pursuing a Masters Degree in Data Analytics from Georgia Tech starting August 2025.</p>
         @if (Model.DuoLingoStreak != null)
         {
             <p>In my free time I like exercising outside whether it be running, biking, or hiking. I also enjoy trying new coffee shops and learning Spanish. I currently have a <span class="link linkStyle" data-selector="duolingo" id="DuoLingo">@Model.DuoLingoStreak</span> day streak on Duolingo.</p>
@@ -113,6 +112,13 @@
                             </div>
                         </div>
                         <div class="grid-x">
+                            <div class="cell offset-1 small-11 medium-11 large-11">
+                                <ul class="companyDescription">
+                                    <li>Medical Practice</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid-x">
                             <div class="cell offset-1 small-10  medium-10 large-10">
                                 <ul>
                                     <li> Developed full-stack web application and appointment scheduling system using <span class="Node.js">Node.js</span>, <span class="Express">Express</span>, and <span class="React">React</span>.</li>
@@ -145,9 +151,10 @@
                         <div class="grid-x">
                             <div class="cell offset-1 small-10  medium-10 large-10">
                                 <ul>
-                                    <li>Implemented HTTP requests using <span class="C#">C#</span> and <span class=".NET">.NET</span> MVC framework to facilitate communication between client and server side endpoints.</li>
+                                    <li>Implemented HTTP requests using <span class="C#">C#</span> and <span class=".NET">.NET</span> MVC to facilitate communication between client and server side endpoints.</li>
+                                    <li>Contributed over 330 commits to the production codebase hosted on Microsoft Azure, supporting feature development, bug fixes, and performance improvements.</li>
                                     <li>Developed responsive web applications enabling compatibility for a range of browsers, users, and devices using Razor, Foundation <span class="CSS">CSS</span>, <span class="AJAX">AJAX</span>, <span class="JSON">JSON</span> and <span class="jQuery">jQuery</span>. </li>
-                                    <li>Created user notifications by integrating Twilio API and utilizing <span class=".NET">.NET</span> microservices and RabbitMQ.</li>
+                                    <li>Integrated Twilio API to send over 500 real-time notifications daily, using <span class=".NET">.NET</span> microservices and RabbitMQ for scalable and efficient message queuing.</li>
                                     <li>Managed and oversaw QA testing deployments by implementing structured QA processes and coordinating testing efforts with developers to ensure seamless production integration and maintain software reliability.</li>
                                     <li>Built and managed reusable <span class="JavaScript">JavaScript</span> libraries to ensure consistent functionality across various projects.</li>
                                 </ul>
@@ -177,9 +184,9 @@
                         <div class="grid-x">
                             <div class="offset-1 small-10 medium-10 large-10">
                                 <ul>
-                                    <li>Used <span class=".NET">.NET</span> MVC framework, <span class="C#">C#</span>, and <span class="SQL">SQL</span> for full-stack development. Created a password keeper and file system for managing user’s passwords.</li>
+                                    <li>Built a password keeper and file management system using <span class="C#">C#</span>, <span class=".NET">.NET</span> MVC, and MySQL, which was actively used on the company’s production site for managing user credentials.</li>
+                                    <li>Recognized by project leads for in-depth research and analysis of password keeper UI/UX patterns and functionality to inform design decisions.</li>
                                     <li>Utilized Git to manage iterations of code and GitHub to collaborate with other team members.</li>
-                                    <li>Gained experience using <span class="SQL">SQL</span> for storing and retrieving data.</li>
                                     <li>Used Jira software for collaboration with team members and bug/issue management.</li>
                                 </ul>
                             </div>
@@ -270,8 +277,8 @@
                         <div class="grid-x">
                             <div class="cell offset-1 small-10 medium-10 large-10">
                                 <ul>
-                                    <li>Implemented software to facilitate the integration of additive and subtractive manufacturing processes to enable hybrid manufacturing.</li>
-                                    <li>Developed one comprehensive G-code (commands that instruct the printer) for 3D printing and milling using <span class="C++">C++</span> and File I/O.</li>
+                                    <li>Developed software to integrate 3D printing (additive) and milling (subtractive) processes for hybrid manufacturing.</li>
+                                    <li>Streamlined G-code (commands that instruct the printer) for 3D printing and milling using <span class="C++">C++</span> and file I/O, improving production speeds by 20%.</li>
                                     <li>Designed a GUI using Windows Presentation Foundation and XAML to receive user inputs to construct G-Code.</li>
                                     <li>1 of 8 finalists nationally to present my research at the ASME 2019 MSEC conference.</li>
                                 </ul>
@@ -296,6 +303,26 @@
                 <div class="experienceDiv" id="educationDiv">
                     <div class="grid-x">
                         <div class="cell small-2 medium-1">
+                            <img class="companyImage" src="~/images/georgiaTech.png" />
+                        </div>
+                        <div class="cell small-6 medium-8">
+                            <p class="role">M.S. Data Analytics - Georgia Tech</p>
+                        </div>
+                        <div class="cell small-4 medium-3 date" style="text-align:right;">
+                            Expected Graduation Date: June 2027
+                        </div>
+                    </div>
+                    <div class="grid-x">
+                        <div class="cell offset-1 small-11 medium-11 large-11">
+                            <ul>
+                                <li>Major: Data Analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="experienceDiv" id="educationDiv">
+                    <div class="grid-x">
+                        <div class="cell small-2 medium-1">
                             <img class="companyImage" src="~/images/oregonState.jpg" />
                         </div>
                         <div class="cell small-6 medium-8">
@@ -313,6 +340,7 @@
                         </div>
                     </div>
                 </div>
+               
             </div>
 
             <div id="Awards">
